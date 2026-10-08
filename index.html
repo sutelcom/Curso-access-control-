@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta property="og:title" content="Curso de Control de Acceso · St. Cloud, FL">
-<meta property="og:description" content="3 sábados: 17, 24 y 31 de octubre. Promo 2x1: $500 por 2 personas. Práctica con equipo real.">
-<meta property="og:image" content="https://sutelcom.github.io/Curso-access-control-/media/poster-es.jpg">
+<meta property="og:description" content="3 sábados: 17, 24 y 31 de octubre. Del presupuesto a la inspección. Promo 2x1: $500 por 2 personas.">
+<meta property="og:image" content="https://sutelcom.github.io/Curso-access-control-/media/temario-es.jpg">
 <title>Curso de Control de Acceso · St. Cloud</title>
 <meta name="description" content="Curso práctico de Control de Acceso en St. Cloud, FL. 3 sábados desde el 17 de octubre. Promo 2x1: $500 por 2 personas.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -70,6 +70,13 @@ figure{margin:0;display:grid;gap:.6rem}
 figcaption{font-size:.9rem;color:var(--muted)}
 
 /* syllabus */
+.days{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:1rem}
+.day{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:1.1rem;display:grid;gap:.8rem;align-content:start;min-width:0}
+.day header{display:grid;gap:.4rem}
+.day dl{margin:0;display:grid;grid-template-columns:2.2rem 1fr;gap:.6rem .5rem}
+.day dt{font:500 .85rem/1.6 var(--mono);color:var(--green)}
+.day dd{margin:0;font-size:.95rem;min-width:0}
+
 ol.syl{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));column-gap:2rem}
 ol.syl li{display:grid;grid-template-columns:2.2rem 1fr;gap:.5rem;padding-block:.65rem;border-bottom:1px solid var(--line);min-width:0}
 ol.syl li b{font:500 .85rem/1.6 var(--mono);color:var(--green)}
@@ -121,7 +128,7 @@ html[lang="en"] [data-l="en"]{display:revert}
     <div class="wires" aria-hidden="true"><span style="background:var(--red)"></span><span style="background:var(--fg)"></span><span style="background:var(--green)"></span><span style="background:var(--line)"></span></div>
     <span class="label"><span data-l="es">Curso práctico · St. Cloud, Florida</span><span data-l="en">Hands-on course · St. Cloud, Florida</span></span>
     <h1><span data-l="es">Aprende a instalar <em>Control de Acceso</em> con equipo real</span><span data-l="en">Learn to install <em>Access Control</em> on real equipment</span></h1>
-    <p class="lede"><span data-l="es">Tres sábados para cablear, programar y diagnosticar una puerta completa, de la lectora a la cerradura, con un contratista de low voltage que trabaja en Florida.</span><span data-l="en">Three Saturdays to wire, program and troubleshoot a complete door, from the reader to the lock, taught by a working Florida low voltage contractor.</span></p>
+    <p class="lede"><span data-l="es">Tres sábados para cotizar, instalar con el código, pasar la inspección y diagnosticar sistemas de control de acceso, con un contratista de low voltage que trabaja en Florida.</span><span data-l="en">Three Saturdays to estimate, install to code, pass inspection and troubleshoot access control systems, taught by a working Florida low voltage contractor.</span></p>
     <figure class="reel">
       <video data-l="es" src="media/reel-es.mp4" poster="media/poster-es.jpg" controls playsinline preload="metadata" aria-label="Video del curso: recorrido por el lugar de clases y el equipo de práctica"></video>
       <video data-l="en" src="media/reel-en.mp4" poster="media/poster-en.jpg" controls playsinline preload="metadata" aria-label="Course video: the training bench and practice equipment"></video>
@@ -186,25 +193,33 @@ html[lang="en"] [data-l="en"]{display:revert}
     </figure>
   </section>
 
-  <section>
-    <span class="label"><span data-l="es">Temario · 14 temas</span><span data-l="en">Syllabus · 14 topics</span></span>
-    <h2><span data-l="es">Qué vas a aprender</span><span data-l="en">What you will learn</span></h2>
-    <ol class="syl">
-      <li><b>01</b><span><span data-l="es">Introducción al control de acceso</span><span data-l="en">Introduction to access control</span></span></li>
-      <li><b>02</b><span><span data-l="es">Tipos de sistemas y componentes</span><span data-l="en">System types and components</span></span></li>
-      <li><b>03</b><span><span data-l="es">Lectores de tarjetas, llaveros y biométricos</span><span data-l="en">Card readers, fobs and biometrics</span></span></li>
-      <li><b>04</b><span><span data-l="es">Cableado y buenas prácticas</span><span data-l="en">Wiring and best practices</span></span></li>
-      <li><b>05</b><span><span data-l="es">Paneles de control y expansores</span><span data-l="en">Control panels and expanders</span></span></li>
-      <li><b>06</b><span><span data-l="es">Puertas, cerraduras eléctricas y relés</span><span data-l="en">Doors, electric locks and relays</span></span></li>
-      <li><b>07</b><span><span data-l="es">Configuración de software</span><span data-l="en">Software configuration</span></span></li>
-      <li><b>08</b><span><span data-l="es">Programación de usuarios y credenciales</span><span data-l="en">Programming users and credentials</span></span></li>
-      <li><b>09</b><span><span data-l="es">Integración con CCTV y alarmas</span><span data-l="en">Integration with CCTV and alarms</span></span></li>
-      <li><b>10</b><span><span data-l="es">Diagnóstico y solución de fallas</span><span data-l="en">Troubleshooting</span></span></li>
-      <li><b>11</b><span><span data-l="es">Mantenimiento</span><span data-l="en">Maintenance</span></span></li>
-      <li><b>12</b><span><span data-l="es">Planos y documentación</span><span data-l="en">Drawings and documentation</span></span></li>
-      <li><b>13</b><span><span data-l="es">Códigos y normativas básicas</span><span data-l="en">Basic codes and standards</span></span></li>
-      <li><b>14</b><span><span data-l="es">Práctica con equipos reales</span><span data-l="en">Hands-on practice with real equipment</span></span></li>
-    </ol>
+  <section id="temario">
+    <span class="label"><span data-l="es">Temario · 6 módulos en 3 sábados</span><span data-l="en">Syllabus · 6 modules over 3 Saturdays</span></span>
+    <h2><span data-l="es">Del presupuesto a la inspección</span><span data-l="en">From the estimate to the inspection</span></h2>
+    <p class="lede"><span data-l="es">No es solo conectar cables. Aprendes a cotizar el trabajo, instalarlo con el código, pasar la inspección del condado y arreglarlo cuando falla.</span><span data-l="en">It is more than connecting wires. You learn to estimate the job, install it to code, pass the county inspection and fix it when it fails.</span></p>
+    <div class="days">
+      <article class="day">
+        <header><span class="label"><span data-l="es">Sábado 1 · 17 oct</span><span data-l="en">Saturday 1 · Oct 17</span></span><h3><span data-l="es">Cotizar, licencias y código</span><span data-l="en">Estimating, licensing and code</span></h3></header>
+        <dl>
+          <dt>M1</dt><dd><span data-l="es">Cómo cotizar en Central Florida: lista de materiales, tarifas de mano de obra de $75 a $120 por hora y márgenes. Qué permite cada licencia de Florida (ES, EF, EG, EC). NEC 725: circuitos clase 2, cable CMP contra CMR y separación de 2 pulgadas.</span><span data-l="en">Estimating in Central Florida: material takeoffs, $75–$120/hr labor rates and margins. What each Florida license allows (ES, EF, EG, EC). NEC 725: Class 2 circuits, CMP vs. CMR cable and the 2-inch separation rule.</span></dd>
+          <dt>M2</dt><dd><span data-l="es">Inspecciones del condado: salida de un solo movimiento (NFPA 101, 15 lbf máximo) y prueba del relé de alarma de incendio (NFPA 72). Auditoría visual de una instalación mal hecha contra una bien hecha.</span><span data-l="en">County inspections: single-motion egress (NFPA 101, 15 lbf max) and fire alarm relay testing (NFPA 72). Visual audit of a bad install vs. a good one.</span></dd>
+        </dl>
+      </article>
+      <article class="day">
+        <header><span class="label"><span data-l="es">Sábado 2 · 24 oct</span><span data-l="en">Saturday 2 · Oct 24</span></span><h3><span data-l="es">Equipos y cableado</span><span data-l="en">Devices and wiring</span></h3></header>
+        <dl>
+          <dt>M3</dt><dd><span data-l="es">Lectoras Prox de 125 kHz contra DESFire EV3. Wiegand de 6 hilos contra OSDP v2 por RS-485. Strikes fail-secure y fail-safe con diodo 1N4007, maglocks de 600 y 1,200 lb con MOV, y botones REX. Controladoras dormakaba, ZKTeco, Brivo y Mercury.</span><span data-l="en">125 kHz Prox vs. DESFire EV3 readers. 6-wire Wiegand vs. 4-wire OSDP v2 over RS-485. Fail-secure and fail-safe strikes with 1N4007 diodes, 600 and 1,200 lb maglocks with MOVs, and REX devices. dormakaba, ZKTeco, Brivo and Mercury controllers.</span></dd>
+          <dt>M4</dt><dd><span data-l="es">Buenas prácticas de campo: rutas de cable, etiquetado BICSI en ambos extremos, aterrizar la malla en un solo punto y protección contra picos de voltaje.</span><span data-l="en">Field best practices: cable pathways, BICSI labeling at both ends, single-point shield grounding and transient voltage protection.</span></dd>
+        </dl>
+      </article>
+      <article class="day">
+        <header><span class="label"><span data-l="es">Sábado 3 · 31 oct</span><span data-l="en">Saturday 3 · Oct 31</span></span><h3><span data-l="es">Diagnóstico y laboratorio de 4 horas</span><span data-l="en">Troubleshooting and 4-hour lab</span></h3></header>
+        <dl>
+          <dt>M5</dt><dd><span data-l="es">Casos reales: lectora fuera de línea por OSDP, maglock que se recalienta, falsas activaciones del REX y caída de voltaje por calibre de cable. Con multímetro y analizador RS-485.</span><span data-l="en">Real cases: reader offline on OSDP, maglock overheating, false REX triggers and voltage drop from wire gauge. With a multimeter and RS-485 analyzer.</span></dd>
+          <dt>M6</dt><dd><span data-l="es">Laboratorio práctico: montas lectoras y REX a altura ADA, tiendes cable plenum, terminas el bus OSDP con resistencias de 120 ohm, sueldas diodos, configuras la controladora y simulas un disparo de alarma de incendio.</span><span data-l="en">Hands-on lab: mount readers and REX at ADA height, pull plenum cable, terminate the OSDP bus with 120-ohm resistors, solder diodes, configure the controller and run a simulated fire alarm trip.</span></dd>
+        </dl>
+      </article>
+    </div>
   </section>
 
   <section>
@@ -245,8 +260,8 @@ html[lang="en"] [data-l="en"]{display:revert}
   <section>
     <span class="label"><span data-l="es">Preguntas frecuentes</span><span data-l="en">FAQ</span></span>
     <div>
-      <details><summary><span data-l="es">¿Necesito experiencia previa?</span><span data-l="en">Do I need prior experience?</span></summary><p><span data-l="es">No. Empezamos desde los componentes básicos. Si ya trabajas con electricidad o cámaras, vas a avanzar más rápido.</span><span data-l="en">No. We start from the basic components. If you already work with electrical or cameras, you will move faster.</span></p></details>
-      <details><summary><span data-l="es">¿El curso da una licencia?</span><span data-l="en">Does the course give a license?</span></summary><p><span data-l="es">No. Es un curso práctico de instalación y servicio. No reemplaza el entrenamiento oficial requerido para licencias estatales de Florida.</span><span data-l="en">No. It is a hands-on installation and service course. It does not replace the official training required for Florida state licenses.</span></p></details>
+      <details><summary><span data-l="es">¿Necesito experiencia previa?</span><span data-l="en">Do I need prior experience?</span></summary><p><span data-l="es">Ayuda tener experiencia básica en electricidad, cámaras o alarmas, porque el curso llega a temas de código e inspección. Si empiezas de cero, explicamos cada componente en la mano y el laboratorio final es guiado.</span><span data-l="en">Basic experience with electrical, cameras or alarms helps, since the course covers code and inspections. If you are starting from zero, we explain every part in your hands and the final lab is guided.</span></p></details>
+      <details><summary><span data-l="es">¿El curso da una licencia?</span><span data-l="en">Does the course give a license?</span></summary><p><span data-l="es">No. Es un curso práctico de instalación y servicio. Sí explicamos qué permite cada licencia de Florida y los pasos para obtenerla, pero el curso no reemplaza el entrenamiento ni los exámenes oficiales del estado.</span><span data-l="en">No. It is a hands-on installation and service course. We do explain what each Florida license allows and the steps to get one, but the course does not replace the state's official training or exams.</span></p></details>
       <details><summary><span data-l="es">¿En qué idioma son las clases?</span><span data-l="en">What language are classes in?</span></summary><p><span data-l="es">En español y en inglés.</span><span data-l="en">Spanish and English.</span></p></details>
       <details><summary><span data-l="es">¿Puedo pagar por Zelle?</span><span data-l="en">Can I pay with Zelle?</span></summary><p><span data-l="es">Sí. Escríbenos por WhatsApp al +1 407 739-6191 y te enviamos los datos.</span><span data-l="en">Yes. Message us on WhatsApp at +1 407 739-6191 and we will send you the details.</span></p></details>
       <details><summary><span data-l="es">¿Y si me inscribo solo?</span><span data-l="en">What if I sign up alone?</span></summary><p><span data-l="es">El precio de $500 cubre a 2 personas. Si vienes solo, escríbenos y te ayudamos a encontrar con quién compartir el cupo.</span><span data-l="en">The $500 price covers 2 people. If you are coming alone, message us and we will help you find someone to share it with.</span></p></details>
