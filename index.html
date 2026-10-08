@@ -92,6 +92,16 @@ figcaption{font-size:.9rem;color:var(--muted)}
 .bring{display:grid;gap:.5rem}
 .price .bring ul,.bring ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:.4rem}
 .bring li{border:1px solid var(--line);background:var(--bg);border-radius:999px;padding:.35rem .8rem;font-size:.9rem}
+.quote{margin:0;background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--green);border-radius:6px;padding:1.2rem 1.3rem;display:grid;gap:.8rem}
+.quote p{font-size:1.05rem;line-height:1.55}
+.quote footer{display:block;font-size:.9rem;color:var(--muted);border:0;padding:0}
+.quote footer b{color:var(--fg)}
+.sched{list-style:none;margin:0;padding:0;display:grid;gap:0;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.sched li{display:grid;grid-template-columns:6.5rem 1fr;gap:.8rem;padding:.6rem .9rem;background:var(--panel);border-top:1px solid var(--line);font-size:.95rem}
+.sched li:first-child{border-top:0}
+.bring .sched li{border-radius:0;border:0;border-top:1px solid var(--line);background:var(--panel);padding:.6rem .9rem}
+.bring .sched li:first-child{border-top:0}
+.sched time{font:500 .85rem/1.5 var(--mono);color:var(--green)}
 /* syllabus */
 .days{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:1rem}
 .day{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:1.1rem;display:grid;gap:.8rem;align-content:start;min-width:0}
@@ -182,6 +192,7 @@ html[lang="en"] [data-l="en"]{display:revert}
       <li><span data-l="es">Instructor con más de 20 años en el campo</span><span data-l="en">Instructor with 20+ years in the field</span></li>
       <li><span data-l="es">En las instalaciones de Edison Fire &amp; Electrical</span><span data-l="en">At Edison Fire &amp; Electrical's facility</span></li>
       <li><span data-l="es">Grupo pequeño: 10 personas</span><span data-l="en">Small group: 10 people</span></li>
+      <li><span data-l="es">Certificado físico firmado al terminar</span><span data-l="en">Signed physical certificate at the end</span></li>
       <li><span data-l="es">Reembolso completo hasta el 14 de octubre</span><span data-l="en">Full refund until October 14</span></li>
     </ul>
   </header>
@@ -331,6 +342,15 @@ html[lang="en"] [data-l="en"]{display:revert}
     <p><span data-l="es">Más de 20 años en telecomunicaciones y sistemas de seguridad. Dirige Sutelcom LLC, contratista de low voltage en Florida, y da este curso en alianza con Edison Fire &amp; Electrical, LLC. Las clases son en español y en inglés.</span><span data-l="en">20+ years in telecommunications and security systems. He runs Sutelcom LLC, a Florida low voltage contractor, and teaches this course in partnership with Edison Fire &amp; Electrical, LLC. Classes are taught in Spanish and English.</span></p></div></div>
   </section>
 
+  <section id="recomendaciones">
+    <span class="label"><span data-l="es">Lo que dicen de Sutelcom</span><span data-l="en">What clients say about Sutelcom</span></span>
+    <h2><span data-l="es">Respaldado por quienes ya trabajaron con nosotros</span><span data-l="en">Backed by people who have worked with us</span></h2>
+    <blockquote class="quote">
+      <p><span data-l="es">“Hemos tenido la fortuna de contar con Sutelcom como nuestro aliado estratégico en la provisión de equipos y asesoría integral en telecomunicaciones. Los resultados fueron los esperados: instalaciones fortificadas, tiempos de respuesta muy cortos y respaldo técnico de alta calidad. Recomiendo a Sutelcom para quienes dispongan de proyectos con grandes desafíos.”</span><span data-l="en">“We have been fortunate to have Sutelcom as our strategic partner for equipment and comprehensive telecommunications consulting. The results were what we expected: solid installations, very short response times and high-quality technical support. I recommend Sutelcom to anyone with challenging projects.”</span></p>
+      <footer><b>Dennys Cortez Alvarez</b> · <span data-l="es">Gerente General, DIELEC (integradora de tecnología, Ecuador). Extracto de carta de recomendación, mayo de 2024.</span><span data-l="en">General Manager, DIELEC (technology integrator, Ecuador). Excerpt from a recommendation letter, May 2024, translated from Spanish.</span></footer>
+    </blockquote>
+  </section>
+
   <section id="inscripcion">
     <span class="label"><span data-l="es">Inscripción</span><span data-l="en">Enrollment</span></span>
     <div class="price">
@@ -338,8 +358,18 @@ html[lang="en"] [data-l="en"]{display:revert}
       <ul>
         <li><span data-l="es">Promo 2x1: ven con un compañero, hermano o hijo.</span><span data-l="en">2-for-1: bring a coworker, brother or son.</span></li>
         <li><span data-l="es">3 sábados, 9 am – 4 pm (unas 21 horas).</span><span data-l="en">3 Saturdays, 9 am – 4 pm (about 21 hours).</span></li>
+        <li><span data-l="es">Certificado físico firmado al terminar el tercer sábado.</span><span data-l="en">Signed physical certificate at the end of the third Saturday.</span></li>
+        <li><span data-l="es">Estacionamiento disponible en el lugar.</span><span data-l="en">On-site parking available.</span></li>
         <li><span data-l="es">1375 Belladonna Place, St. Cloud, FL 34772.</span><span data-l="en">1375 Belladonna Place, St. Cloud, FL 34772.</span></li>
       </ul>
+      <div class="bring"><span class="tag theory"><span data-l="es">Cómo es cada sábado</span><span data-l="en">What each Saturday looks like</span></span>
+        <ol class="sched">
+          <li><time>9:00 am</time><span><span data-l="es">Inicio</span><span data-l="en">Start</span></span></li>
+          <li><time>10–11 am</time><span><span data-l="es">Break con café y refrigerios</span><span data-l="en">Break with coffee and snacks</span></span></li>
+          <li><time>12–1 pm</time><span><span data-l="es">Hora libre para almorzar (el almuerzo no está incluido)</span><span data-l="en">Free hour for lunch (lunch is not included)</span></span></li>
+          <li><time>3–4 pm</time><span><span data-l="es">Segundo break con refrigerios</span><span data-l="en">Second break with snacks</span></span></li>
+          <li><time>4:00 pm</time><span><span data-l="es">Cierre del día</span><span data-l="en">End of day</span></span></li>
+        </ol></div>
       <div class="bring"><span class="tag hands"><span data-l="es">Qué debes traer</span><span data-l="en">What to bring</span></span><ul><li><span data-l="es">Tu laptop</span><span data-l="en">Your laptop</span></li><li><span data-l="es">Multímetro</span><span data-l="en">Multimeter</span></li><li><span data-l="es">Destornilladores Phillips y plano</span><span data-l="en">Phillips and flat screwdrivers</span></li><li><span data-l="es">Alicate (plier)</span><span data-l="en">Pliers</span></li></ul><p class="fine"><span data-l="es">Nosotros ponemos los equipos de control de acceso para practicar.</span><span data-l="en">We provide the access control equipment for practice.</span></p></div>
       <div class="guarantee"><strong><span data-l="es">Sin riesgo</span><span data-l="en">No risk</span></strong><span><span data-l="es">Si te inscribes y cambias de opinión, te devolvemos el 100% hasta el miércoles 14 de octubre. Después puedes pasar tu cupo a otra persona.</span><span data-l="en">If you enroll and change your mind, we refund 100% until Wednesday, October 14. After that you can transfer your seat to someone else.</span></span></div>
       <div class="ctas">
@@ -354,6 +384,9 @@ html[lang="en"] [data-l="en"]{display:revert}
     <span class="label"><span data-l="es">Preguntas frecuentes</span><span data-l="en">FAQ</span></span>
     <div>
       <details><summary><span data-l="es">¿Qué debo llevar?</span><span data-l="en">What should I bring?</span></summary><p><span data-l="es">Tu laptop, un multímetro y herramientas básicas: destornilladores Phillips y plano, y un alicate (plier). Nosotros ponemos los equipos de control de acceso para practicar.</span><span data-l="en">Your laptop, a multimeter and basic hand tools: Phillips and flat screwdrivers, and pliers. We provide the access control equipment for practice.</span></p></details>
+      <details><summary><span data-l="es">¿Recibo un certificado?</span><span data-l="en">Do I get a certificate?</span></summary><p><span data-l="es">Sí. Al terminar el tercer sábado recibes un certificado físico firmado de finalización del curso. No es una licencia estatal.</span><span data-l="en">Yes. At the end of the third Saturday you receive a signed physical certificate of course completion. It is not a state license.</span></p></details>
+      <details><summary><span data-l="es">¿Incluye almuerzo?</span><span data-l="en">Is lunch included?</span></summary><p><span data-l="es">No. De 12 a 1 pm hay una hora libre para salir a comer. En los breaks de la mañana y de la tarde hay café y refrigerios.</span><span data-l="en">No. From 12 to 1 pm there is a free hour to go out for lunch. Morning and afternoon breaks include coffee and snacks.</span></p></details>
+      <details><summary><span data-l="es">¿Hay estacionamiento?</span><span data-l="en">Is there parking?</span></summary><p><span data-l="es">Sí, hay estacionamiento disponible en el lugar.</span><span data-l="en">Yes, parking is available on site.</span></p></details>
       <details><summary><span data-l="es">¿Necesito experiencia previa?</span><span data-l="en">Do I need prior experience?</span></summary><p><span data-l="es">Ayuda tener experiencia básica en electricidad, cámaras o alarmas, porque el curso llega a temas de código e inspección. Si empiezas de cero, explicamos cada componente en la mano y el laboratorio final es guiado.</span><span data-l="en">Basic experience with electrical, cameras or alarms helps, since the course covers code and inspections. If you are starting from zero, we explain every part in your hands and the final lab is guided.</span></p></details>
       <details><summary><span data-l="es">¿El curso da una licencia?</span><span data-l="en">Does the course give a license?</span></summary><p><span data-l="es">No. Es un curso práctico de instalación y servicio. Sí explicamos qué permite cada licencia de Florida y los pasos para obtenerla, pero el curso no reemplaza el entrenamiento ni los exámenes oficiales del estado.</span><span data-l="en">No. It is a hands-on installation and service course. We do explain what each Florida license allows and the steps to get one, but the course does not replace the state's official training or exams.</span></p></details>
       <details><summary><span data-l="es">¿En qué idioma son las clases?</span><span data-l="en">What language are classes in?</span></summary><p><span data-l="es">En español y en inglés.</span><span data-l="en">Spanish and English.</span></p></details>
