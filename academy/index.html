@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Grupo de estudio RCDD · Sutelcom</title>
+<title>Grupo de estudio RCDD · Sutelcom Academy</title>
 <meta name="description" content="Grupo de estudio RCDD en vivo y online: un capítulo del TDMM por semana, clases grabadas, comunidad en Skool. Desde el 7 de noviembre. $15/mes precio fundador.">
-<meta property="og:title" content="Grupo de estudio RCDD · Sutelcom">
+<meta property="og:title" content="Grupo de estudio RCDD · Sutelcom Academy">
 <meta property="og:description" content="Un capítulo del TDMM por semana · 2 h en vivo + grabación · Desde el sáb 7 de noviembre · $15/mes precio fundador.">
-<meta property="og:image" content="https://sutelcom.github.io/Curso-access-control-/academy/og-rcdd2.jpg">
+<meta property="og:image" content="https://sutelcom.github.io/Curso-access-control-/academy/og-rcdd3.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
@@ -146,6 +146,8 @@ footer{font-size:.85rem;color:var(--muted);display:grid;gap:.4rem;padding-top:2r
 .reel video{width:100%;aspect-ratio:9/16;max-width:100%;border-radius:8px;background:var(--fg);vertical-align:top}
 .mbar{display:none}
 .logo{height:28px;width:auto;display:block;border-radius:3px}
+.brandlock{display:flex;align-items:center;gap:.5rem}
+@media (max-width:400px){.logo{height:22px}}
 @media (max-width:640px){
   .mbar{display:flex;gap:.5rem;position:fixed;left:0;right:0;bottom:0;z-index:10;padding:.6rem 16px calc(.6rem + env(safe-area-inset-bottom, 0px));background:var(--bg);border-top:1px solid var(--line)}
   .mbar .btn{flex:1;min-height:2.9rem;padding:0 .6rem;font-size:.95rem}
@@ -164,7 +166,7 @@ fbq('init','327778608601970');fbq('track','PageView');
 <body>
 <div class="wrap">
   <div class="bar">
-    <img class="logo" src="sutelcom-logo.png" alt="Sutelcom" width="238" height="28">
+    <span class="brandlock"><img class="logo" src="sutelcom-logo.png" alt="Sutelcom" width="238" height="28"><span class="brand">Academy</span></span>
     <div class="lang" role="group" aria-label="Idioma / Language">
       <button type="button" id="b-es" aria-pressed="true">ES</button>
       <button type="button" id="b-en" aria-pressed="false">EN</button>
@@ -317,7 +319,7 @@ fbq('init','327778608601970');fbq('track','PageView');
   </section>
 
   <footer>
-    <span>Sutelcom LLC · Florida · sutelcom.com</span>
+    <span>Sutelcom Academy · Sutelcom LLC · Florida</span>
     <span><span data-l="es">RCDD® y TDMM son marcas de BICSI. Grupo de estudio independiente, no afiliado a BICSI.</span><span data-l="en">RCDD® and TDMM are trademarks of BICSI. Independent study group, not affiliated with BICSI.</span></span>
     <span>WhatsApp <span class="mono">+1 407 739-6191</span></span>
   </footer>
@@ -332,8 +334,8 @@ fbq('init','327778608601970');fbq('track','PageView');
 (function(){
   // Skool links: replace when the communities exist. Until then the join buttons open WhatsApp to save a founding seat.
   var SKOOL={es:"",en:""};
-  var WA={es:"https://wa.me/14077396191?text=Hola%2C%20quiero%20unirme%20al%20grupo%20de%20estudio%20RCDD%20en%20espa%C3%B1ol%20%28Sutelcom%29",
-          en:"https://wa.me/14077396191?text=Hi%2C%20I%20want%20to%20join%20the%20RCDD%20study%20group%20in%20English%20%28Sutelcom%29"};
+  var WA={es:"https://wa.me/14077396191?text=Hola%2C%20quiero%20unirme%20al%20grupo%20de%20estudio%20RCDD%20en%20espa%C3%B1ol%20%28Sutelcom%20Academy%29",
+          en:"https://wa.me/14077396191?text=Hi%2C%20I%20want%20to%20join%20the%20RCDD%20study%20group%20in%20English%20%28Sutelcom%20Academy%29"};
   var root=document.documentElement;
   function set(l){
     root.lang=l;
