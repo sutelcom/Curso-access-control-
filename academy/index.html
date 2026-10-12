@@ -188,6 +188,7 @@ fbq('init','327778608601970');fbq('track','PageView');
       <a class="btn pay" data-join href="#unirme"><span data-l="es">Quiero unirme</span><span data-l="en">I want to join</span></a>
       <a class="btn wa" href="#plan"><span data-l="es">Ver el plan de estudio</span><span data-l="en">See the study plan</span></a>
     </div>
+    <p class="fine prereg"><span data-l="es"><b>Pre-inscripción abierta:</b> escríbenos por WhatsApp y te reservamos el precio de fundador ($15/mes, solo 30 cupos). Te enviamos el enlace de la comunidad apenas abran las inscripciones.</span><span data-l="en"><b>Pre-registration is open:</b> message us on WhatsApp and we will hold the founding price for you ($15/mo, only 30 seats). We will send you the community link as soon as enrollment opens.</span></p>
     <ul class="trust">
       <li><span data-l="es">100% online, no presencial</span><span data-l="en">100% online, not in person</span></li>
       <li><span data-l="es">En vivo cada sábado dentro de la comunidad</span><span data-l="en">Live every Saturday inside the community</span></li>
@@ -289,6 +290,7 @@ fbq('init','327778608601970');fbq('track','PageView');
       <div class="ctas">
         <a class="btn pay" data-join href="#"><span data-l="es">Unirme al grupo en español</span><span data-l="en">Join the English group</span></a>
       </div>
+      <p class="fine prereg"><span data-l="es"><b>Pre-inscripción abierta:</b> escríbenos por WhatsApp y te reservamos el precio de fundador ($15/mes, solo 30 cupos). Te enviamos el enlace de la comunidad apenas abran las inscripciones.</span><span data-l="en"><b>Pre-registration is open:</b> message us on WhatsApp and we will hold the founding price for you ($15/mo, only 30 seats). We will send you the community link as soon as enrollment opens.</span></p>
       <p class="fine"><span data-l="es">El pago y el acceso se manejan de forma segura en Skool.</span><span data-l="en">Payment and access are handled securely on Skool.</span></p>
     </div>
   </section>
@@ -334,8 +336,8 @@ fbq('init','327778608601970');fbq('track','PageView');
 (function(){
   // Skool links: replace when the communities exist. Until then the join buttons open WhatsApp to save a founding seat.
   var SKOOL={es:"",en:""};
-  var WA={es:"https://wa.me/14077396191?text=Hola%2C%20quiero%20unirme%20al%20grupo%20de%20estudio%20RCDD%20en%20espa%C3%B1ol%20%28Sutelcom%20Academy%29",
-          en:"https://wa.me/14077396191?text=Hi%2C%20I%20want%20to%20join%20the%20RCDD%20study%20group%20in%20English%20%28Sutelcom%20Academy%29"};
+  var WA={es:"https://wa.me/14077396191?text=Hola%2C%20quiero%20reservar%20mi%20precio%20de%20fundador%20en%20el%20grupo%20de%20estudio%20RCDD%20en%20espa%C3%B1ol%20%28Sutelcom%20Academy%29",
+          en:"https://wa.me/14077396191?text=Hi%2C%20I%20want%20to%20reserve%20my%20founding%20price%20in%20the%20RCDD%20study%20group%20in%20English%20%28Sutelcom%20Academy%29"};
   var root=document.documentElement;
   function set(l){
     root.lang=l;
@@ -345,6 +347,7 @@ fbq('init','327778608601970');fbq('track','PageView');
       if(a.getAttribute("href")==="#unirme")return;
       a.href=SKOOL[l]||WA[l]; a.target="_blank"; a.rel="noopener";});
     document.querySelectorAll("[data-wa]").forEach(function(a){a.href=WA[l];a.target="_blank";a.rel="noopener";});
+    document.querySelectorAll(".prereg").forEach(function(p){p.hidden=!!SKOOL[l];});
     try{localStorage.setItem("lang",l)}catch(e){}
   }
   var start="es";
