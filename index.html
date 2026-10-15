@@ -102,6 +102,11 @@ figcaption{font-size:.9rem;color:var(--muted)}
 .bring .sched li{border-radius:0;border:0;border-top:1px solid var(--line);background:var(--panel);padding:.6rem .9rem}
 .bring .sched li:first-child{border-top:0}
 .sched time{font:500 .85rem/1.5 var(--mono);color:var(--green)}
+.norms{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1rem}
+.norm{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--green);border-radius:6px;padding:1rem 1.1rem;display:grid;gap:.4rem;align-content:start;min-width:0}
+.norm b{font:700 1.05rem/1.25 var(--display)}
+.norm .ref{font:500 .78rem/1.4 var(--mono);color:var(--green)}
+.norm p{margin:0;font-size:.93rem}
 /* syllabus */
 .days{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:1rem}
 .day{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:1.1rem;display:grid;gap:.8rem;align-content:start;min-width:0}
@@ -207,6 +212,7 @@ else if(a.href.indexOf('wa.me')>-1)fbq('track','Contact');});
     <p class="fine"><span data-l="es">Pago seguro con tarjeta, Apple Pay o Google Pay. También aceptamos Zelle: escríbenos por WhatsApp al <span class="mono">+1 407 739-6191</span>.</span><span data-l="en">Secure checkout with card, Apple Pay or Google Pay. Zelle is also accepted: message us on WhatsApp at <span class="mono">+1 407 739-6191</span>.</span></p>
     <ul class="trust">
       <li><span data-l="es">Instructor con más de 20 años en el campo</span><span data-l="en">Instructor with 20+ years in the field</span></li>
+      <li><span data-l="es">Basado en NEC, NFPA 101, 72 y 80, ADA y el Código de Florida</span><span data-l="en">Based on NEC, NFPA 101, 72 and 80, ADA and the Florida Building Code</span></li>
       <li><span data-l="es">En las instalaciones de Edison Fire &amp; Electrical</span><span data-l="en">At Edison Fire &amp; Electrical's facility</span></li>
       <li><span data-l="es">Grupo pequeño: 10 personas por sábado</span><span data-l="en">Small group: 10 people per Saturday</span></li>
       <li><span data-l="es">Certificado físico firmado el mismo día</span><span data-l="en">Signed physical certificate the same day</span></li>
@@ -333,6 +339,23 @@ else if(a.href.indexOf('wa.me')>-1)fbq('track','Contact');});
           </ul></div>
       </article>
     </div>
+  </section>
+
+  <section id="normas">
+    <span class="label"><span data-l="es">Normas y estándares</span><span data-l="en">Codes and standards</span></span>
+    <h2><span data-l="es">Instalas como lo pide el código</span><span data-l="en">Install the way the code requires</span></h2>
+    <p class="lede"><span data-l="es">No es solo conectar cables: aprendes las normas que revisa el inspector y que exigen los clientes comerciales. Cada práctica del día está basada en estos códigos.</span><span data-l="en">It's not just connecting wires: you learn the codes the inspector checks and commercial clients require. Every hands-on exercise is based on these codes.</span></p>
+    <div class="norms">
+      <article class="norm"><span class="ref">NEC · NFPA 70 · Art. 725, 300.11, 110.3(B)</span><b><span data-l="es">Código Eléctrico Nacional</span><span data-l="en">National Electrical Code</span></b><p><span data-l="es">Circuitos Clase 2 de baja tensión: fuentes de poder, cableado de lectoras y cerraduras, separación de cables de energía, soporte correcto del cable e instalación según el listado del fabricante.</span><span data-l="en">Class 2 low-voltage circuits: power supplies, reader and lock wiring, separation from power conductors, proper cable support and installing per the manufacturer's listing.</span></p></article>
+      <article class="norm"><span class="ref">NFPA 101 · §7.2.1.6.2</span><b><span data-l="es">Código de Seguridad Humana</span><span data-l="en">Life Safety Code</span></b><p><span data-l="es">Puertas de salida con control de acceso: sensor de salida, botón de liberación manual, apertura al perder energía y con la alarma de incendio. Nadie puede quedar encerrado.</span><span data-l="en">Access-controlled egress doors: request-to-exit sensor, manual release button, unlock on power loss and on fire alarm. No one can be trapped inside.</span></p></article>
+      <article class="norm"><span class="ref">NFPA 72</span><b><span data-l="es">Código de Alarmas de Incendio</span><span data-l="en">Fire Alarm Code</span></b><p><span data-l="es">Cómo se conecta el control de acceso con la alarma de incendio para liberar las puertas, y lo practicas en el banco de pruebas.</span><span data-l="en">How access control ties into the fire alarm to release doors, practiced on the training bench.</span></p></article>
+      <article class="norm"><span class="ref">NFPA 80</span><b><span data-l="es">Puertas cortafuego</span><span data-l="en">Fire doors</span></b><p><span data-l="es">Por qué una puerta cortafuego debe quedar con pestillo y qué cerradura eléctrica es compatible (strike fail-secure).</span><span data-l="en">Why a fire-rated door must stay latched and which electric lock is compatible (fail-secure strike).</span></p></article>
+      <article class="norm"><span class="ref">FBC · Florida Building Code · Cap. 10</span><b><span data-l="es">Código de Construcción de Florida</span><span data-l="en">Florida Building Code</span></b><p><span data-l="es">Requisitos de medios de egreso y puertas que revisa el inspector en Florida, junto con el Florida Fire Prevention Code.</span><span data-l="en">Means-of-egress and door requirements the Florida inspector checks, along with the Florida Fire Prevention Code.</span></p></article>
+      <article class="norm"><span class="ref">ADA 2010</span><b><span data-l="es">Accesibilidad</span><span data-l="en">Accessibility</span></b><p><span data-l="es">Altura correcta de lectoras y botones (alcance de 15 a 48 pulgadas) y herrajes que se operan sin esfuerzo.</span><span data-l="en">Correct reader and button height (15 to 48 inch reach range) and hardware that operates without tight grasping.</span></p></article>
+      <article class="norm"><span class="ref">UL 294 · OSDP / Wiegand</span><b><span data-l="es">Equipos y comunicación</span><span data-l="en">Equipment and communication</span></b><p><span data-l="es">Equipos de control de acceso listados UL 294 y diferencia entre Wiegand y OSDP, el estándar seguro para conectar lectoras.</span><span data-l="en">UL 294 listed access control equipment and Wiegand vs. OSDP, the secure standard for connecting readers.</span></p></article>
+      <article class="norm"><span class="ref">Estatutos de Florida · Cap. 489, Parte II</span><b><span data-l="es">Licencias en Florida</span><span data-l="en">Florida licensing</span></b><p><span data-l="es">Qué licencia necesitas para instalar control de acceso en Florida (low voltage / alarm system contractor) y cómo trabajar bajo un contratista con licencia.</span><span data-l="en">Which license you need to install access control in Florida (low voltage / alarm system contractor) and how to work under a licensed contractor.</span></p></article>
+    </div>
+    <p class="fine"><span data-l="es">La edición vigente de cada código depende de lo que adopte cada jurisdicción; la autoridad local (AHJ) tiene la última palabra.</span><span data-l="en">The edition in force depends on what each jurisdiction adopts; the local authority having jurisdiction (AHJ) has the final word.</span></p>
   </section>
 
   <section id="lugar">
