@@ -23,7 +23,9 @@ section{padding:52px 0}.items{display:grid;grid-template-columns:repeat(3,1fr);g
 .other a{display:inline-block;margin:6px 8px 0 0;padding:10px 16px;border-radius:999px;background:#fff;color:var(--bg);text-decoration:none;font-weight:600;border:1px solid #d9cdb2}
 .cta{background:var(--coral);color:#fff;text-align:center}.cta h2{font-size:clamp(28px,4vw,40px)}
 footer{background:var(--deep);color:#a9c3cb;font-size:14px;padding:22px 0;text-align:center}
-.sticky{position:fixed;bottom:14px;left:14px;right:14px;display:none;text-align:center;z-index:9}.sticky a{display:block;margin:0}
+.sticky{position:fixed;bottom:14px;left:14px;right:14px;display:none;text-align:center;z-index:9;transition:opacity .2s,transform .2s}.sticky a{display:block;margin:0}
+.sticky.off{opacity:0;transform:translateY(16px);pointer-events:none}
+.deadline.over{background:var(--soft)}
 @media(max-width:760px){.hero .g,.about{grid-template-columns:1fr}.items,.gal{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr}.sticky{display:block}body{padding-bottom:70px}}
 @media(max-width:420px){.items{grid-template-columns:1fr}}
 
@@ -46,11 +48,11 @@ footer{background:var(--deep);color:#a9c3cb;font-size:14px;padding:22px 0;text-a
 <header><div class="wrap"><img src="../img/logo.png" alt="Ivonne Vacations"><span>IVONNE VACATIONS</span></div></header>
 <div class="hero mv"><div class="wrap g"><div>
 <img class="mvlogo" src="../img/mv-logo.png" alt="Black Friday Early Access">
-<div class="deadline">Black Friday anticipado · hasta el 3 de noviembre</div>
+<div class="deadline" id="deadline">Black Friday anticipado · hasta el 3 de noviembre</div>
 <h1>Cruceros con <em>65% de descuento</em> y el 3.º y 4.º huésped gratis</h1>
 <div class="price"><s>antes 60%</s><b>65% OFF</b><span>en la tarifa del crucero</span></div>
 <p>Promoción anticipada de Black Friday de Margaritaville at Sea para reservas nuevas hasta el 3 de noviembre de 2026. Te ayudamos a elegir fecha, barco y cabina, y a reservar en español.</p>
-<a class="btn js-wa" href="https://wa.me/14075764149?text=Hola%20Ivonne%20Vacations%2C%20quiero%20informaci%C3%B3n%20de%20la%20promoci%C3%B3n%20Black%20Friday%20de%20cruceros%20Margaritaville%20%2865%25%20de%20descuento%29.%20Somos%20___%20personas%20y%20queremos%20viajar%20en%3A">Quiero esta promoción</a>
+<a class="btn js-wa" id="hero-cta" href="https://wa.me/14075764149?text=Hola%20Ivonne%20Vacations%2C%20quiero%20informaci%C3%B3n%20de%20la%20promoci%C3%B3n%20Black%20Friday%20de%20cruceros%20Margaritaville%20%2865%25%20de%20descuento%29.%20Somos%20___%20personas%20y%20queremos%20viajar%20en%3A">Quiero esta promoción</a>
 <div class="trust"><span>✓ Atención en español</span><span>✓ Familia ecuatoriana en Orlando</span><span>✓ Respuesta el mismo día</span></div></div>
 <img src="../img/mv-familia-playa.jpg" alt="Familia corriendo en la playa con un crucero Margaritaville al fondo" style="object-position:70% 50%"></div></div>
 <section><div class="wrap"><h2>Qué incluye la promoción</h2><div class="offer">
@@ -79,6 +81,15 @@ footer{background:var(--deep);color:#a9c3cb;font-size:14px;padding:22px 0;text-a
 <section style="padding-top:28px"><div class="wrap fine"><p><b>Condiciones:</b> válido solo para reservas nuevas hechas del 14 de octubre al 3 de noviembre de 2026. Los precios no incluyen impuestos, tasas, gastos portuarios, recargo de combustible ni propinas. Tercer y cuarto huésped gratis, depósito reducido y mejora de cabina aplican solo en fechas seleccionadas. Todo está sujeto a disponibilidad y puede tener fechas bloqueadas. Margaritaville at Sea puede modificar o retirar las ofertas en cualquier momento. No aplica a grupos, chárteres ni salidas especiales.</p>
 <p>Los cruceros los opera Classica Cruise Operator DBA Margaritaville at Sea (registro de los barcos: Bahamas). Ivonne Vacations es una agencia de viajes independiente que te asesora y gestiona tu reserva.</p></div></section>
 <footer><div class="wrap">© SUTELCOM LLC, operando como Ivonne Vacations · Orlando, FL · WhatsApp +1 407 576 4149 · Instagram @ivonnevacations1</div></footer>
-<div class="sticky"><a class="btn js-wa" href="https://wa.me/14075764149?text=Hola%20Ivonne%20Vacations%2C%20quiero%20informaci%C3%B3n%20de%20la%20promoci%C3%B3n%20Black%20Friday%20de%20cruceros%20Margaritaville%20%2865%25%20de%20descuento%29.%20Somos%20___%20personas%20y%20queremos%20viajar%20en%3A">💬 Quiero esta promoción</a></div>
+<div class="sticky off" id="sticky"><a class="btn js-wa" href="https://wa.me/14075764149?text=Hola%20Ivonne%20Vacations%2C%20quiero%20informaci%C3%B3n%20de%20la%20promoci%C3%B3n%20Black%20Friday%20de%20cruceros%20Margaritaville%20%2865%25%20de%20descuento%29.%20Somos%20___%20personas%20y%20queremos%20viajar%20en%3A">💬 Quiero esta promoción</a></div>
 <script>document.querySelectorAll('.js-wa').forEach(function(a){a.addEventListener('click',function(){try{fbq('track','Contact',{content_name:'ivonne-cruceros-black-friday'})}catch(e){}})})</script>
+<script>
+// Cuenta regresiva: la promo termina el 3-nov-2026 a las 23:59 hora de Florida (EST, UTC-5).
+(function(){var end=new Date('2026-11-04T04:59:00Z'),el=document.getElementById('deadline'),d=Math.ceil((end-Date.now())/864e5);
+if(d<=0){el.classList.add('over');el.textContent='Promoción terminada · pregúntanos por las vigentes';}
+else el.textContent=d===1?'Último día · termina el 3 de noviembre':'Quedan '+d+' días · termina el 3 de noviembre';})();
+// El botón fijo solo aparece cuando el botón principal ya no se ve.
+(function(){var st=document.getElementById('sticky'),cta=document.getElementById('hero-cta');if(!('IntersectionObserver' in window)){st.classList.remove('off');return;}
+new IntersectionObserver(function(e){st.classList.toggle('off',e[0].isIntersecting||e[0].boundingClientRect.top>0);}).observe(cta);})();
+</script>
 </body></html>
