@@ -110,6 +110,16 @@ section{padding-block:64px}
 .note-img{font-size:.78rem;color:var(--soft);margin-top:10px}
 @media (max-width:860px){.cabin{grid-template-columns:1fr 1fr;grid-template-rows:auto}.cabin .c-main{grid-row:auto;grid-column:1 / span 2}}
 
+/* galería del barco */
+.gal-ship{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:220px 220px;gap:12px}
+.gal-ship figure{margin:0;position:relative;border-radius:16px;overflow:hidden;min-height:0}
+.gal-ship img{display:block;width:100%;height:100%;object-fit:cover}
+.gal-ship .g-big{grid-row:1 / span 2}
+.gal-ship .g-wide{grid-column:2 / span 2}
+.gal-ship .g-wide img{object-position:center 80%}
+.gal-ship figcaption{position:absolute;left:10px;bottom:10px;background:rgba(8,33,43,.86);color:var(--on-dark);font:600 .72rem var(--f-mono);padding:6px 9px;border-radius:8px}
+@media (max-width:860px){.gal-ship{grid-template-columns:1fr 1fr;grid-template-rows:auto}.gal-ship .g-big{grid-column:1 / span 2;grid-row:auto}.gal-ship figure{aspect-ratio:4/3}.gal-ship .g-big{aspect-ratio:16/10}}
+
 /* itinerario */
 .itin-sec{background:var(--card);border-block:1px solid var(--line)}
 .itin{display:grid;grid-template-columns:.95fr 1.05fr;gap:28px;align-items:center}
@@ -322,7 +332,13 @@ var CONFIG={
         <h2 style="margin-top:8px">Wonder of the Seas</h2>
         <p>Clase Oasis, con 8 "barrios" para recorrer: parques, restaurantes, shows y zonas para niños. Hay algo para cada edad.</p>
       </div>
-      <div class="ship-img"><img src="img/wonder-lounge.jpg" alt="Salón con vista al mar en Wonder of the Seas" width="1400" height="358" loading="lazy"></div>
+      <div class="gal-ship">
+        <figure class="g-big"><img src="img/wonder-ship-rc.jpg" alt="Wonder of the Seas navegando al atardecer" loading="lazy"><figcaption>Navegando al atardecer</figcaption></figure>
+        <figure><img src="img/wonder-ship.jpg" alt="Popa del Wonder of the Seas con el AquaTheater iluminado" loading="lazy" style="object-position:40% 60%"><figcaption>La popa y el AquaTheater</figcaption></figure>
+        <figure><img src="img/wonder-aerial.jpg" alt="Vista aérea del Wonder of the Seas en alta mar" loading="lazy"><figcaption>Vista aérea en alta mar</figcaption></figure>
+        <figure class="g-wide"><img src="img/wonder-aquatheater.jpg" alt="Show acuático en el AquaTheater del Wonder of the Seas" loading="lazy"><figcaption>Shows en el AquaTheater</figcaption></figure>
+      </div>
+      <p class="note-img">Fotos oficiales de Royal Caribbean del Wonder of the Seas.</p>
       <div class="feat">
         <div><h3>Central Park</h3><p>Un parque al aire libre con restaurantes y tiendas.</p></div>
         <div><h3>Boardwalk y AquaTheater</h3><p>Diversión familiar y shows acuáticos.</p></div>
