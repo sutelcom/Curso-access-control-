@@ -170,6 +170,14 @@ footer{font-size:.85rem;color:var(--muted);display:grid;gap:.4rem;padding-top:2r
   .mbar .btn{flex:1;min-height:2.9rem;padding:0 .6rem;font-size:.95rem}
   .wrap{padding-block:0 6rem}
 }
+.ed2-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(9.5rem,1fr));gap:.8rem;margin:1.2rem 0}
+.ed2-stats div{border:1px solid var(--line);border-radius:10px;padding:1rem;display:grid;gap:.35rem}
+.ed2-stats strong{font:700 2.1rem/1 var(--mono);color:var(--green)}
+.ed2-stats span{font-size:.92rem;color:var(--muted)}
+.quotes{list-style:none;margin:1rem 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:.8rem}
+.quotes li{border-left:4px solid var(--green);padding:.6rem .9rem;font-size:1.05rem}
+.quotes li::before{content:"“";font-weight:700;color:var(--green);margin-right:.15rem}
+.quotes li::after{content:"”";font-weight:700;color:var(--green)}
 [data-l="en"]{display:none}
 html[lang="en"] [data-l="es"]{display:none}
 html[lang="en"] [data-l="en"]{display:revert}
@@ -202,9 +210,9 @@ else if(a.href.indexOf('wa.me')>-1)fbq('track','Contact');});
     <h1><span data-l="es">Aprende a instalar <em>Control de Acceso</em> con equipo real</span><span data-l="en">Learn to install <em>Access Control</em> on real equipment</span></h1>
     <p class="lede"><span data-l="es">Un solo sábado, curso completo y 80% práctica. Aprendes lo esencial en palabras simples y el resto del día instalas, programas y reparas puertas con control de acceso en equipos reales, con un contratista de low voltage que trabaja en Florida.</span><span data-l="en">One Saturday, the full course, 80% hands-on. You learn the essentials in plain words, then spend the day installing, programming and fixing access-controlled doors on real equipment, taught by a working Florida low voltage contractor.</span></p>
     <figure class="reel">
-      <video data-l="es" src="media/reel04-28nov-es.mp4" poster="media/poster04-es.jpg" controls playsinline preload="metadata" aria-label="Video del curso: recorrido por el lugar de clases y el equipo de práctica"></video>
+      <video data-l="es" src="media/promo-28nov-es.mp4" poster="media/poster-promo-28nov-es.jpg" controls playsinline preload="metadata" aria-label="Video del curso: recorrido por el lugar de clases y el equipo de práctica"></video>
       <video data-l="en" src="media/reel04-en.mp4" poster="media/poster04-en.jpg" controls playsinline preload="metadata" aria-label="Course video: the training bench and practice equipment"></video>
-      <figcaption><span data-l="es">Recorrido por el lugar del curso y el tablero de práctica.</span><span data-l="en">A look at the training bench and the practice equipment.</span></figcaption>
+      <figcaption><span data-l="es">Así se vivió la masterclass del 31 de octubre.</span><span data-l="en">A look at the training bench and the practice equipment.</span></figcaption>
     </figure>
     <div class="facts">
       <div><span class="label"><span data-l="es">Fecha</span><span data-l="en">Date</span></span><strong><span data-l="es">Sábado 28 de noviembre</span><span data-l="en">Saturday, Nov 28</span></strong></div>
@@ -228,6 +236,29 @@ else if(a.href.indexOf('wa.me')>-1)fbq('track','Contact');});
       <li><span data-l="es">Última edición de esta masterclass</span><span data-l="en">Final session of this masterclass</span></li>
     </ul>
   </header>
+
+  <section id="segunda-edicion">
+    <span class="label"><span data-l="es">Así fue la 2ª edición · sábado 31 de octubre</span><span data-l="en">How the 2nd session went · Saturday, Oct 31</span></span>
+    <h2><span data-l="es">Lo que dijeron los alumnos</span><span data-l="en">What the students said</span></h2>
+    <p class="lede"><span data-l="es">Al terminar, los alumnos respondieron una encuesta anónima. Esto es lo que más valoraron.</span><span data-l="en">At the end of the day, students answered an anonymous survey. Here is what they valued most.</span></p>
+    <div class="ed2-stats">
+      <div><strong>9.3<small>/10</small></strong><span><span data-l="es">Recomendarían el curso a un colega</span><span data-l="en">Would recommend the course to a colleague</span></span></div>
+      <div><strong>5<small>/5</small></strong><span><span data-l="es">Utilidad para su trabajo, en todas las respuestas</span><span data-l="en">Usefulness for their work, in every response</span></span></div>
+      <div><strong>4.7<small>/5</small></strong><span><span data-l="es">Dominio del instructor y claridad</span><span data-l="en">Instructor expertise and clarity</span></span></div>
+      <div><strong>4.7<small>/5</small></strong><span><span data-l="es">Confianza para hacer el trabajo después del curso</span><span data-l="en">Confidence to do the job after the course</span></span></div>
+    </div>
+    <ul class="quotes">
+      <li><span data-l="es">La explicación y el contenido.</span><span data-l="en">The explanations and the content.</span></li>
+      <li><span data-l="es">La atención del instructor.</span><span data-l="en">The instructor's attention.</span></li>
+      <li><span data-l="es">Conocer el manejo del Access Control.</span><span data-l="en">Learning how to work with Access Control.</span></li>
+    </ul>
+    <p><span data-l="es"><b>Se quedaron con ganas de más:</b> la mayoría nos pidió más horas de práctica, y ya preguntan por cursos de Fire Alarm, Intercom, CCTV y cableado y fibra.</span><span data-l="en"><b>They wanted more:</b> most asked for more hands-on hours, and they are already asking about Fire Alarm, Intercom, CCTV and cabling &amp; fiber courses.</span></p>
+    <figure class="ed1-hero"><img src="media/ed2-certificados.jpg" alt="Alumnos de la 2ª edición con su certificado" loading="lazy"><figcaption><span data-l="es">Graduados de la 2ª edición (31 de octubre) con su certificado SUTELCOM · Edison.</span><span data-l="en">Second-session graduates (Oct 31) with their SUTELCOM · Edison certificate.</span></figcaption></figure>
+    <p class="fine"><span data-l="es">Encuesta anónima de satisfacción a los alumnos del 31 de octubre (escala 1–5; recomendación 0–10). Promedio de las respuestas recibidas.</span><span data-l="en">Anonymous satisfaction survey of the Oct 31 students (1–5 scale; recommendation 0–10). Average of the responses received.</span></p>
+    <div class="ctas">
+      <a class="btn pay" href="https://buy.stripe.com/6oU9AVb1C2T42xdabecAo08" target="_blank" rel="noopener"><span data-l="es">Quiero mi cupo del 28 · $150</span><span data-l="en">I want my Nov 28 seat · $150</span></a>
+    </div>
+  </section>
 
   <section id="primera-edicion">
     <span class="label"><span data-l="es">Así fue la primera edición · sábado 17 de octubre</span><span data-l="en">How the first session went · Saturday, Oct 17</span></span>
