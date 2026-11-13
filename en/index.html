@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta property="og:title" content="Last session of the year · Access Control Masterclass · Sat Nov 28 · St. Cloud, FL">
+<meta property="og:description" content="Saturday, November 28, 8 am – 5 pm, lunch included. 80% hands-on with real equipment. $150 per person, only 10 seats.">
+<meta property="og:image" content="https://sutelcom.github.io/Curso-access-control-/media/ed1-certificados.jpg">
+<link rel="alternate" hreflang="es" href="https://sutelcom.github.io/Curso-access-control-/">
+<link rel="alternate" hreflang="en" href="https://sutelcom.github.io/Curso-access-control-/en/">
+<title>Access Control Masterclass · November 28 · St. Cloud</title>
+<meta name="description" content="Hands-on Access Control course in St. Cloud, FL. Last session of the year: Saturday, November 28. $150 per person, lunch included.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: one narrow reading column on a schematic-grey ground; wire colors (red +12V, black GND, green D0, white D1) are the only accents. */
+:root{
+  --bg:#E9ECE8; --panel:#F6F7F4; --fg:#18201C; --muted:#56615B; --line:#C9CFC9;
+  --red:#C2362B; --green:#1E7448; --ink-on-red:#FFFFFF;
+  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121815; --panel:#1A221E; --fg:#E7ECE8; --muted:#9AA79F; --line:#2E3933;
+  --red:#E0544A; --green:#4FB57F; --ink-on-red:#FFFFFF; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121815; --panel:#1A221E; --fg:#E7ECE8; --muted:#9AA79F; --line:#2E3933;
+  --red:#E0544A; --green:#4FB57F; --ink-on-red:#FFFFFF; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:400 1.0625rem/1.6 var(--body);margin:0}
+.wrap{max-width:46rem;margin:0 auto;padding-inline:20px;padding-block:0 4rem}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1.02;letter-spacing:.005em;text-wrap:balance;margin:0}
+h2{font-size:clamp(1.9rem,5vw,2.6rem);text-transform:uppercase}
+h3{font-size:1.35rem;font-weight:700}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--green);outline-offset:3px}
+.label{font:500 .78rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+section{display:grid;gap:1.1rem;padding-block:3rem;border-top:1px solid var(--line)}
+
+/* top bar */
+.bar{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding-block:1rem}
+.brand{font:700 1.05rem/1 var(--display);letter-spacing:.06em;text-transform:uppercase}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.lang button{font:500 .8rem/1 var(--mono);background:none;border:0;color:var(--muted);padding:.5rem .8rem;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
+.lang a{font:500 .8rem/1 var(--mono);color:var(--muted);padding:.5rem .8rem;text-decoration:none}
+.lang a[aria-current="page"]{background:var(--fg);color:var(--bg)}
+
+/* hero */
+.hero{display:grid;gap:1.4rem;padding-block:1.5rem 2.5rem}
+.hero h1{font-size:clamp(2.8rem,10vw,5rem);text-transform:uppercase}
+.hero h1 em{font-style:normal;color:var(--red)}
+.lede{font-size:1.15rem;color:var(--muted);max-width:36rem}
+.wires{display:flex;height:6px;border-radius:3px;overflow:hidden;max-width:12rem}
+.wires span{flex:1}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(9.5rem,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.facts div{background:var(--panel);padding:.85rem 1rem;display:grid;gap:.35rem;min-width:0}
+.facts strong{font:700 1.3rem/1.1 var(--display);letter-spacing:.01em}
+.ctas{display:flex;flex-wrap:wrap;gap:.75rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:3.25rem;padding:0 1.4rem;border-radius:6px;font:600 1rem/1 var(--body);text-decoration:none;border:2px solid var(--fg)}
+.btn.pay{background:var(--red);border-color:var(--red);color:var(--ink-on-red)}
+.btn.pay:hover{filter:brightness(1.08)}
+.btn.wa:hover{background:var(--panel)}
+.fine{font-size:.9rem;color:var(--muted)}
+
+/* diagram */
+figure{margin:0;display:grid;gap:.6rem}
+.diagram{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:1rem;overflow-x:auto}
+.diagram svg{display:block;width:100%;min-width:34rem;height:auto}
+figcaption{font-size:.9rem;color:var(--muted)}
+
+.trust{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;font-size:.9rem;color:var(--fg);padding:0;margin:0;list-style:none}
+.trust li{display:flex;gap:.4rem;align-items:center}
+.trust li::before{content:"";width:.55rem;height:.55rem;border-radius:50%;background:var(--green);flex:none}
+.outcomes{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:.8rem}
+.outcomes li{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:1rem;display:grid;gap:.3rem;min-width:0}
+.outcomes b{font:700 1.15rem/1.15 var(--display);text-transform:uppercase;letter-spacing:.01em}
+.outcomes span.d{font-size:.92rem;color:var(--muted)}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem}
+.gallery figure{margin:0;display:grid;gap:.35rem}
+.gallery img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:6px;display:block}
+.gallery figcaption{font-size:.8rem;color:var(--muted)}
+@media (max-width:640px){.gallery{grid-template-columns:1fr 1fr}.gallery figure:first-child{grid-column:1/-1}.gallery figure:first-child img{aspect-ratio:4/3}}
+.inst{display:grid;grid-template-columns:7rem 1fr;gap:1.2rem;align-items:start}
+.inst img{width:7rem;height:7rem;object-fit:cover;border-radius:50%;border:3px solid var(--green)}
+@media (max-width:480px){.inst{grid-template-columns:1fr}}
+.guarantee{display:flex;flex-wrap:wrap;gap:.4rem .8rem;align-items:baseline;border:2px dashed var(--green);border-radius:8px;padding:1rem}
+.guarantee strong{font:800 1.3rem/1 var(--display);text-transform:uppercase;color:var(--green);white-space:nowrap}
+.final{background:var(--fg);color:var(--bg);border-radius:10px;padding:2rem 1.4rem;display:grid;gap:1rem;text-align:left}
+.final h2{color:var(--bg)}
+.final .btn.wa{border-color:var(--bg);color:var(--bg)}
+.bring{display:grid;gap:.5rem}
+.price .bring ul,.bring ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:.4rem}
+.bring li{border:1px solid var(--line);background:var(--bg);border-radius:999px;padding:.35rem .8rem;font-size:.9rem}
+.quote{margin:0;background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--green);border-radius:6px;padding:1.2rem 1.3rem;display:grid;gap:.8rem}
+.quote p{font-size:1.05rem;line-height:1.55}
+.quote footer{display:block;font-size:.9rem;color:var(--muted);border:0;padding:0}
+.quote footer b{color:var(--fg)}
+.sched{list-style:none;margin:0;padding:0;display:grid;gap:0;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.sched li{display:grid;grid-template-columns:6.5rem 1fr;gap:.8rem;padding:.6rem .9rem;background:var(--panel);border-top:1px solid var(--line);font-size:.95rem}
+.sched li:first-child{border-top:0}
+.bring .sched li{border-radius:0;border:0;border-top:1px solid var(--line);background:var(--panel);padding:.6rem .9rem}
+.bring .sched li:first-child{border-top:0}
+.sched time{font:500 .85rem/1.5 var(--mono);color:var(--green)}
+.norms{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1rem}
+.norm{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--green);border-radius:6px;padding:1rem 1.1rem;display:grid;gap:.4rem;align-content:start;min-width:0}
+.norm b{font:700 1.05rem/1.25 var(--display)}
+.norm .ref{font:500 .78rem/1.4 var(--mono);color:var(--green)}
+.norm p{margin:0;font-size:.93rem}
+/* syllabus */
+.days{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:1rem}
+.day{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:1.1rem;display:grid;gap:.8rem;align-content:start;min-width:0}
+.day header{display:grid;gap:.4rem}
+.ratio{display:flex;border-radius:6px;overflow:hidden;font:600 1rem/1 var(--body);color:#fff;min-height:3.2rem}
+.ratio>div{display:flex;align-items:center;gap:.4rem;padding:0 1rem;white-space:nowrap}
+.ratio strong{font:800 1.6rem/1 var(--display)}
+.r-hands{flex:4 1 0;background:var(--green)}
+.r-theory{flex:1 0 auto;background:var(--fg);color:var(--bg);justify-content:center;padding:0 .5rem!important}
+.part{display:grid;gap:.4rem}
+.part ul{margin:0;padding-left:1.1rem;display:grid;gap:.3rem;font-size:.95rem}
+.tag{justify-self:start;font:500 .72rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:.35rem .55rem;border-radius:4px}
+.tag.theory{background:var(--line);color:var(--fg)}
+.tag.hands{background:var(--green);color:#fff}
+.day details{border:0;padding:0}
+.day details p{font-size:.85rem}
+.day summary{font-size:.85rem;color:var(--muted);font-weight:500}
+
+ol.syl{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));column-gap:2rem}
+ol.syl li{display:grid;grid-template-columns:2.2rem 1fr;gap:.5rem;padding-block:.65rem;border-bottom:1px solid var(--line);min-width:0}
+ol.syl li b{font:500 .85rem/1.6 var(--mono);color:var(--green)}
+
+.who{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:1rem}
+.who p{padding-left:.9rem;border-left:3px solid var(--line)}
+
+.instructor{display:grid;gap:.6rem}
+.countdown{display:flex;flex-wrap:wrap;align-items:baseline;gap:.3rem .6rem;font:500 .9rem/1.3 var(--mono);color:var(--muted)}
+.countdown strong{font:700 1.15rem/1 var(--display);color:var(--fg);letter-spacing:.02em}
+.calc{display:grid;gap:1rem;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:1.5rem}
+.calc label{display:grid;gap:.4rem;font-weight:500}
+.calc label output{font:700 1.3rem/1 var(--display)}
+.calc input[type=range]{width:100%;accent-color:var(--green)}
+.calc .total{display:grid;gap:.3rem;border-top:1px solid var(--line);padding-top:1rem}
+.calc .total strong{font:800 2.4rem/1 var(--display);color:var(--green)}
+.price{display:grid;gap:1.2rem;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:1.5rem}
+.price .big{font:800 clamp(3rem,12vw,4.5rem)/.9 var(--display)}
+.price .big small{font-size:.4em;font-weight:700;color:var(--muted);letter-spacing:.03em}
+.price ul{margin:0;padding-left:1.1rem;display:grid;gap:.3rem}
+
+details{border-bottom:1px solid var(--line);padding-block:.9rem}
+summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:1rem}
+summary::after{content:"+";font-family:var(--mono);color:var(--muted)}
+details[open] summary::after{content:"–"}
+details p{margin-top:.6rem;color:var(--muted)}
+
+footer{font-size:.85rem;color:var(--muted);display:grid;gap:.4rem;padding-top:2rem;border-top:1px solid var(--line)}
+.mono{font-family:var(--mono);font-size:.92em}
+
+.reel{display:grid;gap:.5rem;max-width:22rem}
+.ed1-hero img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px;display:block}
+.ed1-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:.6rem}
+.ed1-grid img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:6px;display:block}
+.ed1-grid figure.wide{grid-column:span 2}.ed1-grid figure.wide img{aspect-ratio:4/3}
+@media (max-width:640px){.ed1-grid{grid-template-columns:1fr 1fr}.ed1-grid figure.wide{grid-column:1/-1}}
+.reels{display:flex;flex-wrap:wrap;gap:1rem;align-items:flex-start}.reels .reel{flex:1 1 15rem}
+.badge{display:inline-block;background:var(--red);color:#fff;font:700 .85rem/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:.45rem .7rem;border-radius:4px}
+.reel video{width:100%;aspect-ratio:9/16;max-width:100%;border-radius:8px;background:var(--fg);vertical-align:top}
+.mbar{display:none}
+@media (max-width:640px){
+  .mbar{display:flex;gap:.5rem;position:fixed;left:0;right:0;bottom:0;z-index:10;padding:.6rem 16px calc(.6rem + env(safe-area-inset-bottom, 0px));background:var(--bg);border-top:1px solid var(--line)}
+  .mbar .btn{flex:1;min-height:2.9rem;padding:0 .6rem;font-size:.95rem}
+  .wrap{padding-block:0 6rem}
+}
+.ed2-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(9.5rem,1fr));gap:.8rem;margin:1.2rem 0}
+.ed2-stats div{border:1px solid var(--line);border-radius:10px;padding:1rem;display:grid;gap:.35rem}
+.ed2-stats strong{font:700 2.1rem/1 var(--mono);color:var(--green)}
+.ed2-stats span{font-size:.92rem;color:var(--muted)}
+.quotes{list-style:none;margin:1rem 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:.8rem}
+.quotes li{border-left:4px solid var(--green);padding:.6rem .9rem;font-size:1.05rem}
+.quotes li::before{content:"“";font-weight:700;color:var(--green);margin-right:.15rem}
+.quotes li::after{content:"”";font-weight:700;color:var(--green)}
+[data-l="en"]{display:none}
+html[lang="en"] [data-l="es"]{display:none}
+html[lang="en"] [data-l="en"]{display:revert}
+@media (prefers-reduced-motion:no-preference){.btn{transition:filter .15s,background .15s}}
+</style>
+
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','327778608601970');fbq('track','PageView');
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a');if(!a)return;
+if(a.href.indexOf('buy.stripe.com')>-1)fbq('track','InitiateCheckout',{value:150,currency:'USD'});
+else if(a.href.indexOf('wa.me')>-1)fbq('track','Contact');});
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=327778608601970&ev=PageView&noscript=1"/></noscript>
+</head>
+<body>
+<div class="wrap">
+  <div class="bar">
+    <span class="brand">Sutelcom LLC</span>
+    <nav class="lang" aria-label="Idioma / Language"><a href="../" id="b-es" hreflang="es">ES</a><a href="./" id="b-en" aria-current="page">EN</a></nav>
+  </div>
+
+  <header class="hero">
+    <div class="wires" aria-hidden="true"><span style="background:var(--red)"></span><span style="background:var(--fg)"></span><span style="background:var(--green)"></span><span style="background:var(--line)"></span></div>
+    <span class="badge"><span data-l="es">Última edición del año · Sáb 28 de noviembre</span><span data-l="en">Last session of the year · Sat Nov 28</span></span>
+    <span class="label"><span data-l="es">Masterclass práctica · St. Cloud, Florida</span><span data-l="en">Hands-on masterclass · St. Cloud, Florida</span></span>
+    <h1><span data-l="es">Aprende a instalar <em>Control de Acceso</em> con equipo real</span><span data-l="en">Learn to install <em>Access Control</em> on real equipment</span></h1>
+    <p class="lede"><span data-l="es">Un solo sábado, curso completo y 80% práctica. Aprendes lo esencial en palabras simples y el resto del día instalas, programas y reparas puertas con control de acceso en equipos reales, con un contratista de low voltage que trabaja en Florida.</span><span data-l="en">One Saturday, the full course, 80% hands-on. You learn the essentials in plain words, then spend the day installing, programming and fixing access-controlled doors on real equipment, taught by a working Florida low voltage contractor.</span></p>
+    <figure class="reel">
+      <video data-l="es" src="../media/promo-28nov-es.mp4" poster="../media/poster-promo-28nov-es.jpg" controls playsinline preload="metadata" aria-label="Video del curso: recorrido por el lugar de clases y el equipo de práctica"></video>
+      <video data-l="en" src="../media/promo-28nov-en.mp4" poster="../media/poster-promo-28nov-en.jpg" controls playsinline preload="metadata" aria-label="Course video: the training bench and practice equipment"></video>
+      <figcaption><span data-l="es">Así se vivió la masterclass del 31 de octubre.</span><span data-l="en">How the Oct 31 masterclass went.</span></figcaption>
+    </figure>
+    <div class="facts">
+      <div><span class="label"><span data-l="es">Fecha</span><span data-l="en">Date</span></span><strong><span data-l="es">Sábado 28 de noviembre</span><span data-l="en">Saturday, Nov 28</span></strong></div>
+      <div><span class="label"><span data-l="es">Horario</span><span data-l="en">Hours</span></span><strong><span data-l="es">8 am – 5 pm, almuerzo incluido</span><span data-l="en">8 am – 5 pm, lunch included</span></strong></div>
+      <div><span class="label"><span data-l="es">Precio</span><span data-l="en">Price</span></span><strong><span data-l="es">$150 por persona</span><span data-l="en">$150 per person</span></strong></div>
+      <div><span class="label"><span data-l="es">Cupo</span><span data-l="en">Seats</span></span><strong><span data-l="es">Solo 10 cupos</span><span data-l="en">Only 10 seats</span></strong></div>
+    </div>
+    <div class="ctas">
+      <a class="btn pay" href="https://buy.stripe.com/6oU9AVb1C2T42xdabecAo08" target="_blank" rel="noopener"><span data-l="es">Inscribirme y pagar · $150</span><span data-l="en">Enroll and pay · $150</span></a>
+      <a class="btn wa" href="https://wa.me/14077396191?text=Hi%2C%20I%20have%20a%20question%20about%20the%20Access%20Control%20masterclass%20on%20November%2028%20%28LP28N-EN%29" target="_blank" rel="noopener"><span data-l="es">Preguntar por WhatsApp</span><span data-l="en">Ask on WhatsApp</span></a>
+    </div>
+    <p class="countdown" id="cd" hidden><span data-l="es">Próximo taller</span><span data-l="en">Next workshop</span> <strong id="cd-date"></strong> <span data-l="es">· faltan</span><span data-l="en">· starts in</span> <strong id="cd-left"></strong></p>
+    <p class="fine"><span data-l="es">Pago seguro con tarjeta, Apple Pay o Google Pay. También aceptamos Zelle: escríbenos por WhatsApp al <span class="mono">+1 407 739-6191</span>.</span><span data-l="en">Secure checkout with card, Apple Pay or Google Pay. Zelle is also accepted: message us on WhatsApp at <span class="mono">+1 407 739-6191</span>.</span></p>
+    <ul class="trust">
+      <li><span data-l="es">Instructor con más de 20 años en el campo</span><span data-l="en">Instructor with 20+ years in the field</span></li>
+      <li><span data-l="es">Basado en NEC, NFPA 101, 72 y 80, ADA y el Código de Florida</span><span data-l="en">Based on NEC, NFPA 101, 72 and 80, ADA and the Florida Building Code</span></li>
+      <li><span data-l="es">En las instalaciones de Edison Fire &amp; Electrical</span><span data-l="en">At Edison Fire &amp; Electrical's facility</span></li>
+      <li><span data-l="es">Grupo pequeño: máximo 10 personas</span><span data-l="en">Small group: max. 10 people</span></li>
+      <li><span data-l="es">Certificado físico firmado el mismo día</span><span data-l="en">Signed physical certificate the same day</span></li>
+      <li><span data-l="es">Almuerzo incluido</span><span data-l="en">Lunch included</span></li>
+      <li><span data-l="es">Última edición de esta masterclass</span><span data-l="en">Final session of this masterclass</span></li>
+    </ul>
+  </header>
+
+  <section id="segunda-edicion">
+    <span class="label"><span data-l="es">Así fue la 2ª edición · sábado 31 de octubre</span><span data-l="en">How the 2nd session went · Saturday, Oct 31</span></span>
+    <h2><span data-l="es">Lo que dijeron los alumnos</span><span data-l="en">What the students said</span></h2>
+    <p class="lede"><span data-l="es">Al terminar, los alumnos respondieron una encuesta anónima. Esto es lo que más valoraron.</span><span data-l="en">At the end of the day, students answered an anonymous survey. Here is what they valued most.</span></p>
+    <div class="ed2-stats">
+      <div><strong>9.3<small>/10</small></strong><span><span data-l="es">Recomendarían el curso a un colega</span><span data-l="en">Would recommend the course to a colleague</span></span></div>
+      <div><strong>5<small>/5</small></strong><span><span data-l="es">Utilidad para su trabajo, en todas las respuestas</span><span data-l="en">Usefulness for their work, in every response</span></span></div>
+      <div><strong>4.7<small>/5</small></strong><span><span data-l="es">Dominio del instructor y claridad</span><span data-l="en">Instructor expertise and clarity</span></span></div>
+      <div><strong>4.7<small>/5</small></strong><span><span data-l="es">Confianza para hacer el trabajo después del curso</span><span data-l="en">Confidence to do the job after the course</span></span></div>
+    </div>
+    <ul class="quotes">
+      <li><span data-l="es">La explicación y el contenido.</span><span data-l="en">The explanations and the content.</span></li>
+      <li><span data-l="es">La atención del instructor.</span><span data-l="en">The instructor's attention.</span></li>
+      <li><span data-l="es">Conocer el manejo del Access Control.</span><span data-l="en">Learning how to work with Access Control.</span></li>
+    </ul>
+    <p><span data-l="es"><b>Se quedaron con ganas de más:</b> la mayoría nos pidió más horas de práctica, y ya preguntan por cursos de Fire Alarm, Intercom, CCTV y cableado y fibra.</span><span data-l="en"><b>They wanted more:</b> most asked for more hands-on hours, and they are already asking about Fire Alarm, Intercom, CCTV and cabling &amp; fiber courses.</span></p>
+    <figure class="ed1-hero"><img src="../media/ed2-certificados.jpg" alt="Alumnos de la 2ª edición con su certificado" loading="lazy"><figcaption><span data-l="es">Graduados de la 2ª edición (31 de octubre) con su certificado SUTELCOM · Edison.</span><span data-l="en">Second-session graduates (Oct 31) with their SUTELCOM · Edison certificate.</span></figcaption></figure>
+    <p class="fine"><span data-l="es">Encuesta anónima de satisfacción a los alumnos del 31 de octubre (escala 1–5; recomendación 0–10). Promedio de las respuestas recibidas.</span><span data-l="en">Anonymous satisfaction survey of the Oct 31 students (1–5 scale; recommendation 0–10). Average of the responses received.</span></p>
+    <div class="ctas">
+      <a class="btn pay" href="https://buy.stripe.com/6oU9AVb1C2T42xdabecAo08" target="_blank" rel="noopener"><span data-l="es">Quiero mi cupo del 28 · $150</span><span data-l="en">I want my Nov 28 seat · $150</span></a>
+    </div>
+  </section>
+
+  <section id="primera-edicion">
+    <span class="label"><span data-l="es">Así fue la primera edición · sábado 17 de octubre</span><span data-l="en">How the first session went · Saturday, Oct 17</span></span>
+    <h2><span data-l="es">Puertas reales, herramientas en mano y certificado el mismo día</span><span data-l="en">Real doors, tools in hand and a certificate the same day</span></h2>
+    <p class="lede"><span data-l="es">En la primera edición cada participante instaló, cableó y programó su puerta sobre bastidores reales, con rack de red, fuentes de poder y cerraduras eléctricas. A las 5 pm salieron con su certificado firmado.</span><span data-l="en">In the first session every participant installed, wired and programmed a door on real mock-up frames, with a network rack, power supplies and electric locks. At 5 pm they left with a signed certificate.</span></p>
+    <figure class="ed1-hero"><img src="../media/ed1-certificados.jpg" alt="Tres participantes de la primera edición sostienen su certificado firmado frente a la puerta de práctica" loading="lazy"><figcaption><span data-l="es">Graduados de la 1ª edición con su certificado SUTELCOM · Edison.</span><span data-l="en">First-session graduates with their SUTELCOM · Edison certificate.</span></figcaption></figure>
+    <div class="ed1-grid">
+      <figure class="wide"><img src="../media/ed1-taller.jpg" alt="Área de trabajo con herramientas, fuente de poder y rack de red" loading="lazy"><figcaption><span data-l="es">El laboratorio: rack, fuentes y equipos listos para conectar</span><span data-l="en">The lab: rack, power supplies and gear ready to wire</span></figcaption></figure>
+      <figure><img src="../media/ed1-cableado.jpg" alt="Participante perfora el marco para pasar el cable" loading="lazy"><figcaption><span data-l="es">Pasando el cableado por el marco</span><span data-l="en">Running cable through the frame</span></figcaption></figure>
+      <figure><img src="../media/ed1-medicion.jpg" alt="Participante mide y marca el herraje antes de instalarlo" loading="lazy"><figcaption><span data-l="es">Medir y marcar antes de instalar</span><span data-l="en">Measure and mark before installing</span></figcaption></figure>
+      <figure><img src="../media/ed1-strike.jpg" alt="Cerradura eléctrica instalada en el marco de la puerta" loading="lazy"><figcaption><span data-l="es">Strike eléctrico instalado en el marco</span><span data-l="en">Electric strike installed in the frame</span></figcaption></figure>
+      <figure><img src="../media/ed1-equipo.jpg" alt="Dos participantes fijan la cerradura eléctrica en equipo" loading="lazy"><figcaption><span data-l="es">Trabajo en equipo en cada puerta</span><span data-l="en">Teamwork on every door</span></figcaption></figure>
+    </div>
+    <div class="reels">
+      <figure class="reel">
+        <video data-l="es" src="../media/reel05-voz-28nov-es.mp4" poster="../media/poster05-es.jpg" controls playsinline preload="metadata" aria-label="Paul explica la masterclass"></video>
+        <video data-l="en" src="../media/reel05-voz-en.mp4" poster="../media/poster05-en.jpg" controls playsinline preload="metadata" aria-label="Paul explains the masterclass"></video>
+        <figcaption><span data-l="es">Paul te cuenta cómo es el día.</span><span data-l="en">Paul walks you through the day.</span></figcaption>
+      </figure>
+      <figure class="reel">
+        <video data-l="es" src="../media/reel03-es.mp4" poster="../media/thumb03-es.jpg" controls playsinline preload="metadata" aria-label="Equipo real de práctica"></video>
+        <video data-l="en" src="../media/reel03-en.mp4" poster="../media/thumb03-en.jpg" controls playsinline preload="metadata" aria-label="Real practice equipment"></video>
+        <figcaption><span data-l="es">El equipo real con el que practicas.</span><span data-l="en">The real equipment you practice on.</span></figcaption>
+      </figure>
+    </div>
+    <div class="ctas">
+      <a class="btn pay" href="https://buy.stripe.com/6oU9AVb1C2T42xdabecAo08" target="_blank" rel="noopener"><span data-l="es">Quiero mi cupo del 28 · $150</span><span data-l="en">I want my Nov 28 seat · $150</span></a>
+      <a class="btn wa" href="https://wa.me/14077396191?text=Hi%2C%20I%20have%20a%20question%20about%20the%20Access%20Control%20masterclass%20on%20November%2028%20%28LP28N-EN%29" target="_blank" rel="noopener"><span data-l="es">Tengo una consulta</span><span data-l="en">I have a question</span></a>
+    </div>
+  </section>
+
+  <section>
+    <span class="label"><span data-l="es">Lo que vas a armar</span><span data-l="en">What you will build</span></span>
+    <h2><span data-l="es">Una puerta completa, cable por cable</span><span data-l="en">A complete door, wire by wire</span></h2>
+    <figure>
+      <div class="diagram">
+        <svg viewBox="0 0 640 250" role="img" aria-label="Diagrama de una puerta con control de acceso: lectora, controladora, fuente, cerradura y botón de salida">
+          <g font-family="IBM Plex Mono, monospace" font-size="12" fill="currentColor">
+            <rect x="20" y="40" width="110" height="70" rx="6" fill="none" stroke="currentColor" stroke-width="2"/>
+            <text x="75" y="70" text-anchor="middle" font-weight="600" data-svg="reader">LECTORA</text>
+            <text x="75" y="90" text-anchor="middle" opacity=".7">Wiegand / OSDP</text>
+            <rect x="250" y="25" width="140" height="190" rx="6" fill="none" stroke="currentColor" stroke-width="2"/>
+            <text x="320" y="55" text-anchor="middle" font-weight="600" data-svg="ctrl">CONTROLADORA</text>
+            <text x="320" y="75" text-anchor="middle" opacity=".7">RELAY NO / C / NC</text>
+            <rect x="500" y="40" width="120" height="70" rx="6" fill="none" stroke="currentColor" stroke-width="2"/>
+            <text x="560" y="70" text-anchor="middle" font-weight="600" data-svg="lock">CERRADURA</text>
+            <text x="560" y="90" text-anchor="middle" opacity=".7">maglock / strike</text>
+            <rect x="20" y="160" width="110" height="60" rx="6" fill="none" stroke="currentColor" stroke-width="2"/>
+            <text x="75" y="186" text-anchor="middle" font-weight="600">REX</text>
+            <text x="75" y="204" text-anchor="middle" opacity=".7" data-svg="rex">botón de salida</text>
+            <rect x="500" y="160" width="120" height="60" rx="6" fill="none" stroke="currentColor" stroke-width="2"/>
+            <text x="560" y="186" text-anchor="middle" font-weight="600" data-svg="psu">FUENTE</text>
+            <text x="560" y="204" text-anchor="middle" opacity=".7">12 / 24 VDC</text>
+          </g>
+          <g stroke-width="3" fill="none">
+            <path d="M130 52 H250" stroke="#C2362B"/>
+            <path d="M130 64 H250" stroke="currentColor"/>
+            <path d="M130 76 H250" stroke="#1E7448"/>
+            <path d="M130 88 H250" stroke="#9AA79F" stroke-dasharray="0"/>
+            <path d="M130 190 H250" stroke="#1E7448" stroke-dasharray="6 4"/>
+            <path d="M390 65 H500" stroke="#C2362B"/>
+            <path d="M390 85 H500" stroke="currentColor"/>
+            <path d="M560 160 V110" stroke="#C2362B" stroke-dasharray="6 4"/>
+          </g>
+          <g font-family="IBM Plex Mono, monospace" font-size="11" fill="currentColor" opacity=".8">
+            <text x="190" y="48" text-anchor="middle">+12V</text>
+            <text x="190" y="102" text-anchor="middle">GND · D0 · D1</text>
+            <text x="190" y="184" text-anchor="middle">REX IN</text>
+            <text x="445" y="58" text-anchor="middle">+V</text>
+            <text x="445" y="100" text-anchor="middle">COM</text>
+          </g>
+        </svg>
+      </div>
+      <figcaption><span data-l="es">Colores estándar de cableado Wiegand: rojo +12V, negro GND, verde D0, blanco D1. En clase lo conectas en equipos reales, no en papel.</span><span data-l="en">Standard Wiegand wire colors: red +12V, black GND, green D0, white D1. In class you connect it on real hardware, not on paper.</span></figcaption>
+    </figure>
+  </section>
+
+  <section id="resultados">
+    <span class="label"><span data-l="es">Lo que te llevas</span><span data-l="en">What you take away</span></span>
+    <h2><span data-l="es">Al terminar el curso vas a poder</span><span data-l="en">When you finish, you will be able to</span></h2>
+    <ul class="outcomes">
+      <li><b><span data-l="es">Cotizar un trabajo</span><span data-l="en">Price a job</span></b><span class="d"><span data-l="es">Sabrás armar una cotización con materiales, mano de obra y ganancia.</span><span data-l="en">You will know how to build a quote with materials, labor and profit.</span></span></li>
+      <li><b><span data-l="es">Instalar una puerta completa</span><span data-l="en">Install a complete door</span></b><span class="d"><span data-l="es">Lectora, controladora, cerradura eléctrica, botón de salida y fuente, conectados por ti.</span><span data-l="en">Reader, controller, electric lock, exit button and power supply, wired by you.</span></span></li>
+      <li><b><span data-l="es">Programar el sistema</span><span data-l="en">Program the system</span></b><span class="d"><span data-l="es">Usuarios, tarjetas y horarios en controladoras de marcas que se usan en Florida.</span><span data-l="en">Users, cards and schedules on controller brands used in Florida.</span></span></li>
+      <li><b><span data-l="es">Encontrar y arreglar fallas</span><span data-l="en">Find and fix faults</span></b><span class="d"><span data-l="es">Con multímetro y un método claro, como se hace en el campo.</span><span data-l="en">With a multimeter and a clear method, the way it is done in the field.</span></span></li>
+      <li><b><span data-l="es">Pasar la inspección</span><span data-l="en">Pass inspection</span></b><span class="d"><span data-l="es">Qué revisa el inspector del condado y cómo dejar la instalación lista.</span><span data-l="en">What the county inspector checks and how to leave the install ready.</span></span></li>
+      <li><b><span data-l="es">Saber qué licencia necesitas</span><span data-l="en">Know which license you need</span></b><span class="d"><span data-l="es">Qué permite cada licencia de Florida para que trabajes dentro de la ley.</span><span data-l="en">What each Florida license allows so you work within the law.</span></span></li>
+    </ul>
+  </section>
+
+  <section id="ganancia">
+    <span class="label"><span data-l="es">Lo que vale aprender esto</span><span data-l="en">What this skill is worth</span></span>
+    <h2><span data-l="es">Calcula cuánto podrías ganar</span><span data-l="en">See how much you could earn</span></h2>
+    <p class="lede"><span data-l="es">Hoy un trabajo de control de acceso de una sola puerta se cobra entre $1,500 y $3,000 en Central Florida. Con tu primer trabajo recuperas los $150 del curso muchas veces.</span><span data-l="en">A single-door access control job sells for $1,500 to $3,000 in Central Florida today. Your first job pays back the $150 course many times over.</span></p>
+    <div class="calc">
+      <label><span><span data-l="es">Puertas al mes</span><span data-l="en">Doors per month</span>: <output id="c-doors">2</output></span><input type="range" id="r-doors" min="1" max="8" step="1" value="2"></label>
+      <label><span><span data-l="es">Precio por puerta</span><span data-l="en">Price per door</span>: <output id="c-price">$2,000</output></span><input type="range" id="r-price" min="1000" max="4000" step="250" value="2000"></label>
+      <div class="total"><span class="label"><span data-l="es">Ingreso estimado al mes</span><span data-l="en">Estimated monthly revenue</span></span><strong id="c-total">$4,000</strong><span class="fine">≈ <b id="c-x">27</b> <span data-l="es">veces lo que cuesta el curso</span><span data-l="en">times the cost of the course</span></span></div>
+      <p class="fine"><span data-l="es">Estimación con precios de referencia de Central Florida, antes de materiales. No es una garantía de ingresos.</span><span data-l="en">Estimate based on Central Florida reference prices, before materials. Not a guarantee of income.</span></p>
+    </div>
+  </section>
+
+  <section id="temario">
+    <span class="label"><span data-l="es">Temario · 1 sábado completo</span><span data-l="en">Syllabus · 1 full Saturday</span></span>
+    <h2><span data-l="es">Aquí se aprende haciendo</span><span data-l="en">You learn by doing</span></h2>
+    <p class="lede"><span data-l="es">Todo el curso en un día. Cada bloque empieza con lo esencial, explicado en palabras simples, y sigue con tus manos en equipos reales. La última edición del año es el sábado 28 de noviembre.</span><span data-l="en">The whole course in one day. Each block starts with the essentials in plain words, then moves to your hands on real equipment. The last session of the year is Saturday, November 28.</span></p>
+    <div class="ratio" role="img" aria-label="80% práctica, 20% teoría"><div class="r-hands"><strong>80%</strong> <span data-l="es">práctica</span><span data-l="en">hands-on</span></div><div class="r-theory"><strong>20%</strong> <span data-l="es">teoría</span><span data-l="en">theory</span></div></div>
+    <div class="days">
+      <article class="day">
+        <header><span class="label"><span data-l="es">Mañana · 8 am – 12 pm</span><span data-l="en">Morning · 8 am – 12 pm</span></span><h3><span data-l="es">Instalar y cablear una puerta completa</span><span data-l="en">Install and wire a complete door</span></h3></header>
+        <div class="part"><span class="tag theory"><span data-l="es">Lo esencial</span><span data-l="en">The essentials</span></span>
+          <ul>
+            <li><span data-l="es">Las piezas de una puerta con control de acceso y qué hace cada una</span><span data-l="en">The parts of an access-controlled door and what each one does</span></li>
+            <li><span data-l="es">Cerraduras eléctricas: cuál abre y cuál cierra cuando se va la luz</span><span data-l="en">Electric locks: which one opens and which one locks when power fails</span></li>
+            <li><span data-l="es">Qué licencia pide Florida y qué revisa el inspector</span><span data-l="en">Which Florida license you need and what the inspector checks</span></li>
+          </ul></div>
+        <div class="part"><span class="tag hands"><span data-l="es">Con tus manos</span><span data-l="en">Hands-on</span></span>
+          <ul>
+            <li><span data-l="es">Conectas lectora, controladora, cerradura, botón de salida y fuente</span><span data-l="en">Wire the reader, controller, lock, exit button and power supply</span></li>
+            <li><span data-l="es">Trabajas con controladoras de marcas reales: dormakaba, ZKTeco, Brivo y Mercury</span><span data-l="en">Work with real-brand controllers: dormakaba, ZKTeco, Brivo and Mercury</span></li>
+          </ul></div>
+      </article>
+      <article class="day">
+        <header><span class="label"><span data-l="es">Tarde · 1 – 4 pm</span><span data-l="en">Afternoon · 1 – 4 pm</span></span><h3><span data-l="es">Programar y encontrar fallas</span><span data-l="en">Program and troubleshoot</span></h3></header>
+        <div class="part"><span class="tag theory"><span data-l="es">Lo esencial</span><span data-l="en">The essentials</span></span>
+          <ul>
+            <li><span data-l="es">Cómo pensar cuando una puerta no funciona</span><span data-l="en">How to think when a door does not work</span></li>
+            <li><span data-l="es">Las fallas más comunes en el campo y su solución</span><span data-l="en">The most common field failures and how to fix them</span></li>
+          </ul></div>
+        <div class="part"><span class="tag hands"><span data-l="es">Con tus manos</span><span data-l="en">Hands-on</span></span>
+          <ul>
+            <li><span data-l="es">Das de alta usuarios, tarjetas y horarios</span><span data-l="en">Add users, cards and schedules</span></li>
+            <li><span data-l="es">Encuentras fallas con multímetro en equipos reales</span><span data-l="en">Find faults with a multimeter on real equipment</span></li>
+            <li><span data-l="es">Simulas una alarma de incendio y compruebas que la puerta se libere</span><span data-l="en">Simulate a fire alarm and confirm the door releases</span></li>
+          </ul></div>
+      </article>
+      <article class="day">
+        <header><span class="label"><span data-l="es">Cierre · 4 – 5 pm</span><span data-l="en">Wrap-up · 4 – 5 pm</span></span><h3><span data-l="es">Cotizar un trabajo y certificado</span><span data-l="en">Price a job and get certified</span></h3></header>
+        <div class="part"><span class="tag theory"><span data-l="es">Lo esencial</span><span data-l="en">The essentials</span></span>
+          <ul>
+            <li><span data-l="es">Cómo cotizar: materiales, mano de obra y ganancia</span><span data-l="en">How to price a job: materials, labor and profit</span></li>
+          </ul></div>
+        <div class="part"><span class="tag hands"><span data-l="es">Con tus manos</span><span data-l="en">Hands-on</span></span>
+          <ul>
+            <li><span data-l="es">Armas tu primera cotización con un caso real</span><span data-l="en">Build your first quote from a real job</span></li>
+            <li><span data-l="es">Prueba práctica corta y entrega de tu certificado firmado</span><span data-l="en">Short hands-on check and your signed certificate</span></li>
+          </ul></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="normas">
+    <span class="label"><span data-l="es">Normas y estándares</span><span data-l="en">Codes and standards</span></span>
+    <h2><span data-l="es">Instalas como lo pide el código</span><span data-l="en">Install the way the code requires</span></h2>
+    <p class="lede"><span data-l="es">No es solo conectar cables: aprendes las normas que revisa el inspector y que exigen los clientes comerciales. Cada práctica del día está basada en estos códigos.</span><span data-l="en">It's not just connecting wires: you learn the codes the inspector checks and commercial clients require. Every hands-on exercise is based on these codes.</span></p>
+    <div class="norms">
+      <article class="norm"><span class="ref">NEC · NFPA 70 · Art. 725, 300.11, 110.3(B)</span><b><span data-l="es">Código Eléctrico Nacional</span><span data-l="en">National Electrical Code</span></b><p><span data-l="es">Circuitos Clase 2 de baja tensión: fuentes de poder, cableado de lectoras y cerraduras, separación de cables de energía, soporte correcto del cable e instalación según el listado del fabricante.</span><span data-l="en">Class 2 low-voltage circuits: power supplies, reader and lock wiring, separation from power conductors, proper cable support and installing per the manufacturer's listing.</span></p></article>
+      <article class="norm"><span class="ref">NFPA 101 · §7.2.1.6.2</span><b><span data-l="es">Código de Seguridad Humana</span><span data-l="en">Life Safety Code</span></b><p><span data-l="es">Puertas de salida con control de acceso: sensor de salida, botón de liberación manual, apertura al perder energía y con la alarma de incendio. Nadie puede quedar encerrado.</span><span data-l="en">Access-controlled egress doors: request-to-exit sensor, manual release button, unlock on power loss and on fire alarm. No one can be trapped inside.</span></p></article>
+      <article class="norm"><span class="ref">NFPA 72</span><b><span data-l="es">Código de Alarmas de Incendio</span><span data-l="en">Fire Alarm Code</span></b><p><span data-l="es">Cómo se conecta el control de acceso con la alarma de incendio para liberar las puertas, y lo practicas en el banco de pruebas.</span><span data-l="en">How access control ties into the fire alarm to release doors, practiced on the training bench.</span></p></article>
+      <article class="norm"><span class="ref">NFPA 80</span><b><span data-l="es">Puertas cortafuego</span><span data-l="en">Fire doors</span></b><p><span data-l="es">Por qué una puerta cortafuego debe quedar con pestillo y qué cerradura eléctrica es compatible (strike fail-secure).</span><span data-l="en">Why a fire-rated door must stay latched and which electric lock is compatible (fail-secure strike).</span></p></article>
+      <article class="norm"><span class="ref">FBC · Florida Building Code · Cap. 10</span><b><span data-l="es">Código de Construcción de Florida</span><span data-l="en">Florida Building Code</span></b><p><span data-l="es">Requisitos de medios de egreso y puertas que revisa el inspector en Florida, junto con el Florida Fire Prevention Code.</span><span data-l="en">Means-of-egress and door requirements the Florida inspector checks, along with the Florida Fire Prevention Code.</span></p></article>
+      <article class="norm"><span class="ref">ADA 2010</span><b><span data-l="es">Accesibilidad</span><span data-l="en">Accessibility</span></b><p><span data-l="es">Altura correcta de lectoras y botones (alcance de 15 a 48 pulgadas) y herrajes que se operan sin esfuerzo.</span><span data-l="en">Correct reader and button height (15 to 48 inch reach range) and hardware that operates without tight grasping.</span></p></article>
+      <article class="norm"><span class="ref">UL 294 · OSDP / Wiegand</span><b><span data-l="es">Equipos y comunicación</span><span data-l="en">Equipment and communication</span></b><p><span data-l="es">Equipos de control de acceso listados UL 294 y diferencia entre Wiegand y OSDP, el estándar seguro para conectar lectoras.</span><span data-l="en">UL 294 listed access control equipment and Wiegand vs. OSDP, the secure standard for connecting readers.</span></p></article>
+      <article class="norm"><span class="ref">Estatutos de Florida · Cap. 489, Parte II</span><b><span data-l="es">Licencias en Florida</span><span data-l="en">Florida licensing</span></b><p><span data-l="es">Qué licencia necesitas para instalar control de acceso en Florida (low voltage / alarm system contractor) y cómo trabajar bajo un contratista con licencia.</span><span data-l="en">Which license you need to install access control in Florida (low voltage / alarm system contractor) and how to work under a licensed contractor.</span></p></article>
+    </div>
+    <p class="fine"><span data-l="es">La edición vigente de cada código depende de lo que adopte cada jurisdicción; la autoridad local (AHJ) tiene la última palabra.</span><span data-l="en">The edition in force depends on what each jurisdiction adopts; the local authority having jurisdiction (AHJ) has the final word.</span></p>
+  </section>
+
+  <section id="lugar">
+    <span class="label"><span data-l="es">El lugar</span><span data-l="en">The venue</span></span>
+    <h2><span data-l="es">Un taller real, no un salón de hotel</span><span data-l="en">A real shop, not a hotel meeting room</span></h2>
+    <p class="lede"><span data-l="es">Las clases son en las instalaciones de Edison Fire &amp; Electrical en St. Cloud, con mesa de práctica, área de taller y equipos reales listos para conectar.</span><span data-l="en">Classes take place at Edison Fire &amp; Electrical's facility in St. Cloud, with a practice bench, a shop area and real equipment ready to wire.</span></p>
+    <div class="gallery">
+      <figure><img src="../media/lugar-fachada.jpg" alt="Fachada de Edison Fire &amp; Electrical, 1375 Belladonna Place"><figcaption><span data-l="es">1375 Belladonna Place, St. Cloud</span><span data-l="en">1375 Belladonna Place, St. Cloud</span></figcaption></figure>
+      <figure><img src="../media/lugar-tablero.jpg" alt="Mesa de práctica con panel, lectora y cerradura magnética"><figcaption><span data-l="es">Mesa de práctica con equipos reales</span><span data-l="en">Practice bench with real equipment</span></figcaption></figure>
+      <figure><img src="../media/lugar-taller.jpg" alt="Área de taller"><figcaption><span data-l="es">Área de taller</span><span data-l="en">Shop area</span></figcaption></figure>
+    </div>
+  </section>
+
+  <section>
+    <span class="label"><span data-l="es">Para quién es</span><span data-l="en">Who it is for</span></span>
+    <h2><span data-l="es">Si trabajas con cables, esto es para ti</span><span data-l="en">If you work with wire, this is for you</span></h2>
+    <div class="who">
+      <p><span data-l="es">Electricistas y ayudantes que quieren sumar low voltage a su trabajo.</span><span data-l="en">Electricians and helpers who want to add low voltage to their work.</span></p>
+      <p><span data-l="es">Técnicos de cámaras y alarmas que ya instalan y quieren cotizar puertas.</span><span data-l="en">CCTV and alarm techs who already install and want to bid on doors.</span></p>
+      <p><span data-l="es">Personas que quieren entrar a la construcción en Central Florida con un oficio que se paga bien.</span><span data-l="en">People who want to get into construction in Central Florida with a well-paid trade.</span></p>
+      <p><span data-l="es">Contratistas que quieren capacitar a su gente sin perder días de trabajo: el curso es en sábado y dura un solo día.</span><span data-l="en">Contractors who want to train their crew without losing work days: the course runs on a single Saturday.</span></p>
+    </div>
+  </section>
+
+  <section class="instructor">
+    <span class="label"><span data-l="es">Instructor</span><span data-l="en">Instructor</span></span>
+    <div class="inst"><img src="../media/paul.jpg" alt="Paul Villacreses, instructor"><div>
+    <h2>Paul Villacreses</h2>
+    <p><span data-l="es">Más de 20 años en telecomunicaciones y sistemas de seguridad. Dirige Sutelcom LLC, contratista de low voltage en Florida, y da este curso en alianza con Edison Fire &amp; Electrical, LLC. Las clases son en español y en inglés.</span><span data-l="en">20+ years in telecommunications and security systems. He runs Sutelcom LLC, a Florida low voltage contractor, and teaches this course in partnership with Edison Fire &amp; Electrical, LLC. Classes are taught in Spanish and English.</span></p></div></div>
+  </section>
+
+  <section id="inscripcion">
+    <span class="label"><span data-l="es">Inscripción</span><span data-l="en">Enrollment</span></span>
+    <div class="price">
+      <div class="big">$150 <small><span data-l="es">por persona</span><span data-l="en">per person</span></small></div>
+      <ul>
+        <li><span data-l="es">Curso completo en un solo sábado, 8 am – 5 pm, con práctica en equipos reales.</span><span data-l="en">The full course in a single Saturday, 8 am – 5 pm, with hands-on practice on real equipment.</span></li>
+        <li><span data-l="es">Sábado 28 de noviembre: la última edición del año.</span><span data-l="en">Saturday, November 28: the last session of the year.</span></li>
+        <li><span data-l="es">Almuerzo incluido, más café y refrigerios.</span><span data-l="en">Lunch included, plus coffee and snacks.</span></li>
+        <li><span data-l="es">Certificado físico firmado al terminar el día.</span><span data-l="en">Signed physical certificate at the end of the day.</span></li>
+        <li><span data-l="es">Estacionamiento disponible en el lugar.</span><span data-l="en">On-site parking available.</span></li>
+        <li><span data-l="es">1375 Belladonna Place, St. Cloud, FL 34772.</span><span data-l="en">1375 Belladonna Place, St. Cloud, FL 34772.</span></li>
+      </ul>
+      <div class="bring"><span class="tag theory"><span data-l="es">Cómo es el día</span><span data-l="en">What the day looks like</span></span>
+        <ol class="sched">
+          <li><time>8:00 am</time><span><span data-l="es">Inicio</span><span data-l="en">Start</span></span></li>
+          <li><time>10 am</time><span><span data-l="es">Break con café y refrigerios</span><span data-l="en">Break with coffee and snacks</span></span></li>
+          <li><time>12–1 pm</time><span><span data-l="es">Almuerzo incluido</span><span data-l="en">Lunch included</span></span></li>
+          <li><time>3 pm</time><span><span data-l="es">Segundo break con refrigerios</span><span data-l="en">Second break with snacks</span></span></li>
+          <li><time>5:00 pm</time><span><span data-l="es">Entrega de certificados</span><span data-l="en">Certificates handed out</span></span></li>
+        </ol></div>
+      <div class="bring"><span class="tag hands"><span data-l="es">Qué debes traer</span><span data-l="en">What to bring</span></span><ul><li><span data-l="es">Tu laptop</span><span data-l="en">Your laptop</span></li><li><span data-l="es">Multímetro</span><span data-l="en">Multimeter</span></li><li><span data-l="es">Destornilladores Phillips y plano</span><span data-l="en">Phillips and flat screwdrivers</span></li><li><span data-l="es">Alicate (plier)</span><span data-l="en">Pliers</span></li></ul><p class="fine"><span data-l="es">Nosotros ponemos los equipos de control de acceso para practicar.</span><span data-l="en">We provide the access control equipment for practice.</span></p></div>
+      <div class="guarantee"><strong><span data-l="es">Sin riesgo</span><span data-l="en">No risk</span></strong><span><span data-l="es">Si te inscribes y cambias de opinión, te devolvemos el 100% hasta el miércoles 25 de noviembre. Si no puedes ir, puedes pasar tu cupo a otra persona.</span><span data-l="en">If you enroll and change your mind, we refund 100% until Wednesday, November 25. If you cannot make it, you can transfer your seat to someone else.</span></span></div>
+      <div class="ctas">
+        <a class="btn pay" href="https://buy.stripe.com/6oU9AVb1C2T42xdabecAo08" target="_blank" rel="noopener"><span data-l="es">Inscribirme y pagar · $150</span><span data-l="en">Enroll and pay · $150</span></a>
+        <a class="btn wa" href="https://wa.me/14077396191?text=Hi%2C%20I%20have%20a%20question%20about%20the%20Access%20Control%20masterclass%20on%20November%2028%20%28LP28N-EN%29" target="_blank" rel="noopener"><span data-l="es">Preguntar por WhatsApp</span><span data-l="en">Ask on WhatsApp</span></a>
+      </div>
+      <p class="fine"><span data-l="es">Pago seguro con Stripe. Recibes la confirmación por correo y te escribimos por WhatsApp. ¿Dudas? Escríbenos antes de pagar.</span><span data-l="en">Secure checkout with Stripe. You get your confirmation by email and we message you on WhatsApp. Questions? Message us before paying.</span></p>
+    </div>
+  </section>
+
+  <section>
+    <span class="label"><span data-l="es">Preguntas frecuentes</span><span data-l="en">FAQ</span></span>
+    <div>
+      <details><summary><span data-l="es">¿Qué debo llevar?</span><span data-l="en">What should I bring?</span></summary><p><span data-l="es">Tu laptop, un multímetro y herramientas básicas: destornilladores Phillips y plano, y un alicate (plier). Nosotros ponemos los equipos de control de acceso para practicar.</span><span data-l="en">Your laptop, a multimeter and basic hand tools: Phillips and flat screwdrivers, and pliers. We provide the access control equipment for practice.</span></p></details>
+      <details><summary><span data-l="es">¿Habrá más fechas?</span><span data-l="en">Will there be more dates?</span></summary><p><span data-l="es">El sábado 28 de noviembre es la última edición del año. Las fechas de 2027 se anunciarán más adelante. Es un solo día y te llevas tu certificado.</span><span data-l="en">Saturday, November 28 is the last session of the year. 2027 dates will be announced later. It is a single day and you leave with your certificate.</span></p></details>
+      <details><summary><span data-l="es">¿Recibo un certificado?</span><span data-l="en">Do I get a certificate?</span></summary><p><span data-l="es">Sí. Al terminar el día recibes un certificado físico firmado de finalización del curso. No es una licencia estatal.</span><span data-l="en">Yes. At the end of the day you receive a signed physical certificate of course completion. It is not a state license.</span></p></details>
+      <details><summary><span data-l="es">¿Incluye almuerzo?</span><span data-l="en">Is lunch included?</span></summary><p><span data-l="es">Sí. El almuerzo de 12 a 1 pm está incluido, y en los breaks de la mañana y de la tarde hay café y refrigerios.</span><span data-l="en">Yes. Lunch from 12 to 1 pm is included, and morning and afternoon breaks include coffee and snacks.</span></p></details>
+      <details><summary><span data-l="es">¿Hay estacionamiento?</span><span data-l="en">Is there parking?</span></summary><p><span data-l="es">Sí, hay estacionamiento disponible en el lugar.</span><span data-l="en">Yes, parking is available on site.</span></p></details>
+      <details><summary><span data-l="es">¿Necesito experiencia previa?</span><span data-l="en">Do I need prior experience?</span></summary><p><span data-l="es">Ayuda tener experiencia básica en electricidad, cámaras o alarmas, porque el curso llega a temas de código e inspección. Si empiezas de cero, explicamos cada componente en la mano y el laboratorio final es guiado.</span><span data-l="en">Basic experience with electrical, cameras or alarms helps, since the course covers code and inspections. If you are starting from zero, we explain every part in your hands and the final lab is guided.</span></p></details>
+      <details><summary><span data-l="es">¿El curso da una licencia?</span><span data-l="en">Does the course give a license?</span></summary><p><span data-l="es">No. Es un curso práctico de instalación y servicio. Sí explicamos qué permite cada licencia de Florida y los pasos para obtenerla, pero el curso no reemplaza el entrenamiento ni los exámenes oficiales del estado.</span><span data-l="en">No. It is a hands-on installation and service course. We do explain what each Florida license allows and the steps to get one, but the course does not replace the state's official training or exams.</span></p></details>
+      <details><summary><span data-l="es">¿En qué idioma son las clases?</span><span data-l="en">What language are classes in?</span></summary><p><span data-l="es">En español y en inglés.</span><span data-l="en">Spanish and English.</span></p></details>
+      <details><summary><span data-l="es">¿Puedo pagar por Zelle?</span><span data-l="en">Can I pay with Zelle?</span></summary><p><span data-l="es">Sí. Escríbenos por WhatsApp al +1 407 739-6191 y te enviamos los datos.</span><span data-l="en">Yes. Message us on WhatsApp at +1 407 739-6191 and we will send you the details.</span></p></details>
+      <details><summary><span data-l="es">¿Puedo inscribir a más de una persona?</span><span data-l="en">Can I enroll more than one person?</span></summary><p><span data-l="es">Sí. El precio es $150 por persona; cada participante ocupa un cupo. Escríbenos por WhatsApp y te ayudamos con la inscripción del grupo.</span><span data-l="en">Yes. The price is $150 per person and each participant takes one seat. Message us on WhatsApp and we will help you enroll your group.</span></p></details>
+    </div>
+  </section>
+
+  <section>
+    <div class="final">
+      <h2><span data-l="es">Última edición del año: sábado 28 de noviembre</span><span data-l="en">Last session of the year: Saturday, November 28</span></h2>
+      <p><span data-l="es">Solo 10 cupos, $150 por persona con almuerzo incluido. Un día que puede abrirte una nueva línea de trabajo.</span><span data-l="en">Only 10 seats, $150 per person with lunch included. One day that can open a new line of work for you.</span></p>
+      <div class="ctas">
+        <a class="btn pay" href="https://buy.stripe.com/6oU9AVb1C2T42xdabecAo08" target="_blank" rel="noopener"><span data-l="es">Reservar mi cupo · $150</span><span data-l="en">Reserve my seat · $150</span></a>
+        <a class="btn wa" href="https://wa.me/14077396191?text=Hi%2C%20I%20have%20a%20question%20about%20the%20Access%20Control%20masterclass%20on%20November%2028%20%28LP28N-EN%29" target="_blank" rel="noopener"><span data-l="es">Tengo una pregunta</span><span data-l="en">I have a question</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Sutelcom LLC · <span data-l="es">en alianza con</span><span data-l="en">in partnership with</span> Edison Fire &amp; Electrical, LLC</span>
+    <span>WhatsApp <span class="mono">+1 407 739-6191</span> · St. Cloud, FL</span>
+  </footer>
+</div>
+
+<nav class="mbar" aria-label="Quick enrollment">
+  <a class="btn pay" href="https://buy.stripe.com/6oU9AVb1C2T42xdabecAo08" target="_blank" rel="noopener"><span data-l="es">Pagar $150</span><span data-l="en">Pay $150</span></a>
+  <a class="btn wa" href="https://wa.me/14077396191?text=Hi%2C%20I%20have%20a%20question%20about%20the%20Access%20Control%20masterclass%20on%20November%2028%20%28LP28N-EN%29" target="_blank" rel="noopener">WhatsApp</a>
+</nav>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  var svgText={es:{reader:"LECTORA",ctrl:"CONTROLADORA",lock:"CERRADURA",rex:"botón de salida",psu:"FUENTE"},
+               en:{reader:"READER",ctrl:"CONTROLLER",lock:"LOCK",rex:"exit button",psu:"POWER SUPPLY"}};
+  function set(l){
+    root.lang=l;
+    document.querySelectorAll("[data-svg]").forEach(function(t){t.textContent=svgText[l][t.getAttribute("data-svg")]});
+    document.querySelectorAll("video").forEach(function(v){v.pause()});
+  }
+  set(root.lang==="en"?"en":"es");
+})();
+
+(function(){
+  function $(i){return document.getElementById(i)}
+  var fmt=function(n){return "$"+n.toLocaleString("en-US")};
+  function calc(){var d=+$("r-doors").value,p=+$("r-price").value,t=d*p;
+    $("c-doors").textContent=d;$("c-price").textContent=fmt(p);$("c-total").textContent=fmt(t);$("c-x").textContent=Math.round(t/150);}
+  $("r-doors").addEventListener("input",calc);$("r-price").addEventListener("input",calc);calc();
+  var dates=[["2026-11-28T13:00:00Z","28 nov","Nov 28"]];
+  function tick(){var now=Date.now(),n=null;
+    for(var i=0;i<dates.length;i++){if(new Date(dates[i][0]).getTime()>now){n=dates[i];break;}}
+    if(!n){$("cd").hidden=true;return;}
+    var ms=new Date(n[0]).getTime()-now,d=Math.floor(ms/864e5),h=Math.floor(ms%864e5/36e5),m=Math.floor(ms%36e5/6e4);
+    var en=document.documentElement.lang==="en";
+    $("cd-date").textContent=(en?"Sat ":"sáb ")+(en?n[2]:n[1])+" · 8 am";
+    $("cd-left").textContent=d+(en?"d ":"d ")+h+"h "+m+"m";
+    $("cd").hidden=false;}
+  tick();setInterval(tick,30000);
+  document.querySelectorAll(".lang button").forEach(function(b){b.addEventListener("click",function(){setTimeout(tick,0)})});
+})();
+</script>
+</body>
+</html>
